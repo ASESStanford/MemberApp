@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'application_submission/index'
+
+  get 'application_submission/new'
+
+  get '/application_submission/:id/edit', to: 'application_submission#edit', as: 'application_submission'
+
+  get 'application_submission/edit'
+
+  get 'application/index'
+
+  get 'application/new'
+
+  get 'application/edit'
+
+  get 'welcome/index'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

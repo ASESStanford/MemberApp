@@ -1,0 +1,9 @@
+<% if !current_user %>
+<h1>Welcome to the 2015-16 ASES Application</h1>
+<h3>Have an application already?</h3>
+<span>>>Login Here</span>
+<h3>Otherwise, click here to start an application</h3>
+<% else %>
+Welcome back, <%= current_user.email %>!
+Click here to continue working on your application.
+<% end %>
