@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'application_submission/index'
 
-  get 'application_submission/new'
+  get 'question/review' => 'question#review'
+  resources :application_submissions, :question
 
-  get '/application_submission/:id/edit', to: 'application_submission#edit', as: 'application_submission'
+  
 
-  get 'application_submission/edit'
+  #get '/application_submission/:id/edit', to: 'application_submission#edit', as: 'application_submission'
 
   get 'application/index'
 

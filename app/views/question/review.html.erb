@@ -1,0 +1,32 @@
+
+<% @form_questions.each do |form| %>
+	<h2><%= form[:title] %></h2>
+	<table>
+		<tr>
+			<td><b>Question</b></td>
+			<td><b>Delete?</b></td>
+		</tr>
+		<% form[:questions].each do |q| %>
+			<tr>
+				<td>
+					<%= form_for q, url: {action: "update", id: q.id} do |f| %>
+						<%= f.text_field :text %>
+						<%= f.hidden_field :application_form_id, value: form[:id] %>
+						<%= f.submit "edit" %>
+					<% end %>
+				</td>
+				<td><%= link_to 'Remove', q,
+            :confirm => 'Are you sure?', :method => :delete %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<td>
+				<%= form_for @question, url: {action: "create"} do |f| %>
+					<%= f.text_field :text %>
+					<%= f.hidden_field :application_form_id, value: form[:id] %>
+					<%= f.submit "Create" %>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+<% end %>

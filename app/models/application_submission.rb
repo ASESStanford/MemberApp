@@ -4,7 +4,9 @@ class ApplicationSubmission < ActiveRecord::Base
   has_many :answers
 
   def self.grab_qas
-	data = self.answers.map{|a| {a.question : a}} 
+  	self.init_answers if !self.answers
+	data = self.answers.map{|a| {a.question => a}} 
+	return data
   end
 
   def self.matching_qs
@@ -13,6 +15,10 @@ class ApplicationSubmission < ActiveRecord::Base
 
   def self.init_answers
   	#go through and create answers for every existing question in app form
+  	all_questions = self.matching_qs
+  	all_questions.each do |q|
+  		self.create_answer(question_id:q.id, text: "")
+  	end
   end
 
 end
