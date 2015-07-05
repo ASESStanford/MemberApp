@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
   def self.init_application
   	return self.create_application_submission(application_form_id:1)
   end
+
+  def self.has_application?
+  	return ApplicationSubmission.where(user_id: id) == nil
+  end
+
 end
