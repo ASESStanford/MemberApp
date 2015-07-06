@@ -6,8 +6,11 @@ class ApplicationSubmissionController < ApplicationController
   end
 
   def new
-	current_user.init_application if !current_user.application_submission
-	redirect_to application_submission_edit_url
+    cur = current_user.application_submission
+    if cur == nil
+      cur = current_user.init_application
+    end
+	  redirect_to edit_application_submission_url(cur.id)
   end
 
   def edit
