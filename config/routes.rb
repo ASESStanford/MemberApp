@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'question/review' => 'question#review'
-  resources :application_submissions, :question
+  resources :application_submission, :question
 
   
 
