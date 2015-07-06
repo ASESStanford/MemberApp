@@ -15,6 +15,9 @@ class ApplicationSubmissionController < ApplicationController
 
   def edit
   	@application_submission = ApplicationSubmission.find(params[:id])
+    if @application_submission == nil
+      redirect_to  new_application_submission_url
+    end
   	@questions_and_answers = @application_submission.grab_qas
   end
 
@@ -22,6 +25,11 @@ class ApplicationSubmissionController < ApplicationController
   end
 
   def update
+    answers = answer_set_params
+    answers.each do |id, text|
+      Answer.find(id).update(text: text)
+    end
+    redirect_to edit_application_submission_url(params[:id])
   end
 
   def destroy
@@ -29,4 +37,9 @@ class ApplicationSubmissionController < ApplicationController
 
   def show
   end
+
+  private
+    def answer_set_params
+      params.require(:answers)
+    end
 end
