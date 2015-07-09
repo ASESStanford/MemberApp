@@ -2,7 +2,7 @@ class ApplicationSubmissionController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
+    @apps = ApplicationSubmission.all
   end
 
   def new
@@ -15,9 +15,6 @@ class ApplicationSubmissionController < ApplicationController
 
   def edit
   	@application_submission = ApplicationSubmission.find(params[:id])
-    if @application_submission == nil
-      redirect_to  new_application_submission_url
-    end
   	@questions_and_answers = @application_submission.grab_qas
   end
 
@@ -36,6 +33,7 @@ class ApplicationSubmissionController < ApplicationController
   end
 
   def show
+    @app = ApplicationSubmission.find(params[:id]).grab_qas
   end
 
   private

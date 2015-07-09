@@ -3,6 +3,10 @@ class ApplicationSubmission < ActiveRecord::Base
   belongs_to :application_form
   has_many :answers
 
+  def applicant_name
+    return user.name
+  end
+
   def matching_qs
   	return Question.where(application_form_id: self.application_form_id)
   end

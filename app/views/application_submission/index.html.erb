@@ -1,2 +1,12 @@
-<h1>ApplicationSubmission#index</h1>
-<p>Find me in app/views/application_submission/index.html.erb</p>
+<table>
+	<tr>
+		<td>Application Name</td>
+		<td>Avg Score</td>
+		<td>Rated?</td>
+	</tr>
+	<% @apps.each do |app| %>
+		<tr>
+			<td><%= link_to app.applicant_name, app %></td>
+		</tr>
+	<% end %>
+</table>

@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   get 'question/review' => 'question#review'
   resources :application_submission, :question
-
-  
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   #get '/application_submission/:id/edit', to: 'application_submission#edit', as: 'application_submission'
 
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  devise_for :users
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

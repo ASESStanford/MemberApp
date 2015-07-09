@@ -1,2 +1,9 @@
-<h1>ApplicationSubmission#show</h1>
-<p>Find me in app/views/application_submission/show.html.erb</p>
+<% @app.each do |qa| %>
+	<% question = qa.keys[0] 
+		answer = qa.values[0]
+	%>
+	<div class="qa_grouping">
+		<span class="question"><%= question.text %></span>
+		<span class="answer"><%= answer.text %></span> 
+	</div>
+<% end %>
