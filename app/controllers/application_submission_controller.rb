@@ -26,6 +26,9 @@ class ApplicationSubmissionController < ApplicationController
     answers.each do |id, text|
       Answer.find(id).update(text: text)
     end
+    if params[:commit] == "Submit"
+      ApplicationSubmission.update(params[:id], :submitted => true)
+    end
     redirect_to edit_application_submission_url(params[:id])
   end
 
