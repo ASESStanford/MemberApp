@@ -36,7 +36,8 @@ class ApplicationSubmissionController < ApplicationController
   end
 
   def show
-    @app = ApplicationSubmission.find(params[:id]).grab_qas
+    @application_submission = ApplicationSubmission.find(params[:id])
+    @questions_and_answers = @application_submission.grab_qas
   end
 
   private
