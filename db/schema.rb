@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709205211) do
+ActiveRecord::Schema.define(version: 20150710162449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(version: 20150709205211) do
   create_table "application_submissions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "application_form_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "round",               default: 1
   end
 
   add_index "application_submissions", ["application_form_id"], name: "index_application_submissions_on_application_form_id", using: :btree
@@ -66,14 +67,29 @@ ActiveRecord::Schema.define(version: 20150709205211) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.integer  "role",                   default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "written_ratings", force: :cascade do |t|
+    t.integer  "application_submission_id"
+    t.integer  "user_id"
+    t.text     "comment"
+    t.integer  "rating"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "written_ratings", ["application_submission_id"], name: "index_written_ratings_on_application_submission_id", using: :btree
+  add_index "written_ratings", ["user_id"], name: "index_written_ratings_on_user_id", using: :btree
 
   add_foreign_key "answers", "application_submissions"
   add_foreign_key "answers", "questions"
   add_foreign_key "application_submissions", "application_forms"
   add_foreign_key "application_submissions", "users"
   add_foreign_key "questions", "application_forms"
+  add_foreign_key "written_ratings", "application_submissions"
+  add_foreign_key "written_ratings", "users"
 end

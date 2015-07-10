@@ -3,10 +3,29 @@
 		<td>Application Name</td>
 		<td>Avg Score</td>
 		<td>Rated?</td>
+		<% if current_user.is_admin? %>
+		<td>Accept/Reject</td>
+		<% end %>
 	</tr>
 	<% @apps.each do |app| %>
 		<tr>
 			<td><%= link_to app.applicant_name, app %></td>
+			<td><%= app.avg_written_rating %></td>
+			<td><%= bool_to_string(app.has_been_rated_by(current_user.id)) %></td>
+			<td>
+				<% if current_user.is_admin? %>
+					<% if app.round == 1 %> <!-- magic number, if still in written app review round -->
+						<%= form_for app, url: application_submission_path(app), method: :patch do |f| %>
+							<%= f.submit "yes", name:'round[2]', data:{ confirm:'Are you would like to accept this applicant? This process is irreversible.'} %>
+							<%= f.submit "no", name:'round[0]', data:{confirm:'Are you would like to reject this applicant? This process is irreversible.'} %>
+						<% end %>
+					<% elsif app.round == 0 %> <!-- rejected -->
+						Rejected
+					<% else %>	<!-- moved to interviews -->
+						OK				
+					<% end %>
+				<% end %>
+			</td>
 		</tr>
 	<% end %>
 </table>

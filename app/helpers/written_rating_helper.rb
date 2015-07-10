@@ -1,0 +1,2 @@
+module WrittenRatingHelper
+end

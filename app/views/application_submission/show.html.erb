@@ -7,3 +7,12 @@
 		<span class="answer"><%= answer.text %></span> 
 	</div>
 <% end %>
+
+<div id="app_rating">
+	<h2>Rate</h2>
+	<%= form_for @user_rating, url: {action: "update"} do |f| %>
+		<%= f.text_area :comment %>
+		<%= select_tag(:rating, options_for_select([["1",1],["2",2],["3",3]])) %>
+		<%= f.submit %>
+	<% end %>
+</div>
