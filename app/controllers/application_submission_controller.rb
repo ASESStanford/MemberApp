@@ -40,13 +40,10 @@ class ApplicationSubmissionController < ApplicationController
       end
       redirect_to edit_application_submission_url(params[:id])
     end
-<<<<<<< HEAD
     if params[:commit] == "Submit"
       ApplicationSubmission.update(params[:id], :submitted => true)
     end
     redirect_to edit_application_submission_url(params[:id])
-=======
->>>>>>> SubmissionAdminNextRound
   end
 
   def destroy
