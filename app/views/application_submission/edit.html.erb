@@ -1,15 +1,30 @@
-<%= form_for @application_submission, url: {action: "update"} do |f| %>
-	<% @questions_and_answers.each  do |q| %>
+<% if @application_submission.submitted %>
+	<% @questions_and_answers.each do |q| %>
 		<%  question = q.keys[0] 
 			answer = q.values[0]
 		%>
 		<div class="question">
 			<%= question.text %>
 			<div class="answer">
-				<%= text_field_tag "answers[" + answer.id.to_s + "]", answer.text %>
+				<%= answer.text %>
 			</div>
 		</div>
-		
 	<% end %>
-	<%= f.submit "edit" %>
+	<div class="note">Your application has been submitted.</div>
+<% else %>
+	<%= form_for @application_submission, url: {action: "update"} do |f| %>
+		<% @questions_and_answers.each do |q| %>
+			<%  question = q.keys[0] 
+				answer = q.values[0] %>
+			<div class="question">
+				<%= question.text %>
+				<div class="answer">
+					<%= text_field_tag "answers[" + answer.id.to_s + "]", answer.text %>
+				</div>
+			</div>
+		<% end %>
+		<div class="note">Save frequently. Submissions are final.</div>
+		<%= f.submit "Save" %>
+		<%= f.submit "Submit" %>
+	<% end %>
 <% end %>

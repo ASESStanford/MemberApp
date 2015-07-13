@@ -26,6 +26,9 @@ class ApplicationSubmissionController < ApplicationController
     answers.each do |id, text|
       Answer.find(id).update(text: text)
     end
+    if params[:commit] == "Submit"
+      ApplicationSubmission.update(params[:id], :submitted => true)
+    end
     redirect_to edit_application_submission_url(params[:id])
   end
 
@@ -33,7 +36,8 @@ class ApplicationSubmissionController < ApplicationController
   end
 
   def show
-    @app = ApplicationSubmission.find(params[:id]).grab_qas
+    @application_submission = ApplicationSubmission.find(params[:id])
+    @questions_and_answers = @application_submission.grab_qas
   end
 
   private

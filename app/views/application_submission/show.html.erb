@@ -1,4 +1,14 @@
-<% @app.each do |qa| %>
+<%= link_to "Back to All Submissions", application_submission_index_path %>
+<BR>
+<div class="status">Status:
+<% if @application_submission.submitted %>
+	Submitted
+<% else %>
+	Not submitted
+<% end %>
+</div>
+<BR>
+<% @questions_and_answers.each do |qa| %>
 	<% question = qa.keys[0] 
 		answer = qa.values[0]
 	%>
