@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'written_rating/edit'
+
+  get 'written_rating/update'
+
+  get 'written_rating/new'
+
   get 'question/review' => 'question#review'
-  resources :application_submission, :question
+  resources :application_submission, :question, :written_ratings
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   #get '/application_submission/:id/edit', to: 'application_submission#edit', as: 'application_submission'

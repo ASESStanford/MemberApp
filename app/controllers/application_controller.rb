@@ -3,4 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   #before_action :authenticate_user!
+  helper_method :bool_to_string
+
+  def bool_to_string(boo)
+    return "Yes" if boo 
+    return "No"
+  end
 end

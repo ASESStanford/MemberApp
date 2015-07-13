@@ -1,10 +1,31 @@
 class ApplicationSubmission < ActiveRecord::Base
   belongs_to :user
   belongs_to :application_form
+  has_many :written_ratings
   has_many :answers
 
   def applicant_name
     return user.name
+  end
+
+  
+
+  def has_been_rated_by(user)
+    rating = written_ratings.find_by_user_id(user)
+    return false if rating == nil
+    return false if rating[:rating] == nil
+    return true
+  end
+
+  def avg_written_rating
+    sum_rating = written_ratings.inject(0) do |sum, x| 
+      sum = x[:rating].to_i + sum if x 
+    end
+    return sum_rating/ written_ratings.size
+  end
+
+  def rating_for(user)
+    return written_ratings.find_by_user_id(user.id)
   end
 
   def matching_qs
@@ -25,4 +46,5 @@ class ApplicationSubmission < ActiveRecord::Base
     return data
   end
 
+  
 end
