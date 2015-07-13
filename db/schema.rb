@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150710033317) do
-=======
 ActiveRecord::Schema.define(version: 20150710162449) do
->>>>>>> SubmissionAdminNextRound
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,15 +36,10 @@ ActiveRecord::Schema.define(version: 20150710162449) do
   create_table "application_submissions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "application_form_id"
-<<<<<<< HEAD
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.boolean  "submitted",           default: false
-=======
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
     t.integer  "round",               default: 1
->>>>>>> SubmissionAdminNextRound
   end
 
   add_index "application_submissions", ["application_form_id"], name: "index_application_submissions_on_application_form_id", using: :btree

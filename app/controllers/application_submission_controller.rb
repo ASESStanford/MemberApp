@@ -53,9 +53,9 @@ class ApplicationSubmissionController < ApplicationController
 
     @application_submission = ApplicationSubmission.find(params[:id])
     @questions_and_answers = @application_submission.grab_qas
-    @user_rating = @main_submission.rating_for(current_user)
+    @user_rating = @application_submission.rating_for(current_user)
     if @user_rating == nil
-      @user_rating = @main_submission.written_ratings.create(user_id: current_user.id)
+      @user_rating = @application_submission.written_ratings.create(user_id: current_user.id)
     end
   end
 
