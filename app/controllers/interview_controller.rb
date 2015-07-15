@@ -8,7 +8,7 @@ class InterviewController < ApplicationController
       @interviews = @new_interview.get_nil_reviewer
       @my_interviews = @new_interview.belong_to_interviewer(current_user.id)
     else
-      @interviews = @new_interview.get_nil_applicant
+      @interviews = @new_interview.get_available_interviews
       @my_interviews = @new_interview.belong_to_applicant(current_user.id)
     end
   end

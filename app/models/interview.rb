@@ -10,6 +10,10 @@ class Interview < ActiveRecord::Base
   	return Interview.where(applicant_id: nil)
   end
 
+  def get_available_interviews
+  	return Interview.where(applicant_id: nil).where.not(interviewer_id: nil)
+  end
+
   def belong_to_interviewer(id)
   	return Interview.where(interviewer_id: id)
   end
