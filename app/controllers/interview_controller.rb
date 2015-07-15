@@ -1,7 +1,13 @@
 class InterviewController < ApplicationController
   def index
-  	@interviews = Interview.all
-  	@new_interview = Interview.new
+    @new_interview = Interview.new
+    if current_user.is_admin?
+  	  @interviews = Interview.all
+    elsif current_user.is_reviewer?
+      @interviews = @new_interview.get_nil_reviewer
+    else
+      @interviews = @new_interview.get_nil_applicant
+    end
   end
 
   def show
@@ -18,6 +24,17 @@ class InterviewController < ApplicationController
   	i.location = event[:location]
   	i.save
   	redirect_to :back
+  end
+
+  def signup
+    interview = Interview.find(params[:id])
+    if current_user.is_admin? or current_user.is_reviewer?
+      interview.interviewer_id = current_user.id
+    elsif current_user.is_applicant?
+      interview.applicant_id = current_user.id
+    end
+    interview.save()
+    redirect_to :back
   end
 
   private

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'interview/:id/signup', :to => "interview#signup", as: 'interview_signup'
+
   get 'interview/index'
 
   get 'interview/show'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   get 'written_rating/new'
 
   get 'question/review' => 'question#review'
+
   resources :application_submission, :question, :written_ratings, :interview
   devise_for :users, :controllers => { registrations: 'registrations' }
 

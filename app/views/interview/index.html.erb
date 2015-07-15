@@ -5,6 +5,7 @@
 		<td>Interviewer Name</td>
 		<td>Datetime</td>
 		<td>Location</td>
+		<td>Sign Up</td>
 	</tr>
 	<% @interviews.each do |i| %>
 	<tr>
@@ -13,12 +14,15 @@
 		<td><%= i.interviewer_name %></td>
 		<td><%= i.time %></td>
 		<td><%= i.location %></td>
+		<td><%= link_to "Sign Up", interview_signup_path(i.id) %></td>
 	</tr>
 	<% end %>
 </table>
+<% if current_user.is_admin? %>
 <h3>Create New Interview Timeslot</h3>
 <%= form_for @new_interview, url: {action: :create} do |f| %>
 	<%= f.text_field :location, placeholder: "location" %>
 	<%= f.datetime_select :time, ampm: true, minute_step: 15 %>
 	<%= f.submit %>
+<% end %>
 <% end %>
