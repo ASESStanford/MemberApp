@@ -10,6 +10,14 @@ class Interview < ActiveRecord::Base
   	return Interview.where(applicant_id: nil)
   end
 
+  def belong_to_interviewer(id)
+  	return Interview.where(interviewer_id: id)
+  end
+
+  def belong_to_applicant(id)
+  	return Interview.where(applicant_id: id)
+  end
+
   def interviewer
   	return nil if interviewer_id == nil
   	return User.find(interviewer_id)

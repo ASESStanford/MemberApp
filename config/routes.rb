@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'interview/:id/signup', :to => "interview#signup", as: 'interview_signup'
 
+  get 'interview/:id/cancel', :to => "interview#cancel", as: 'interview_cancel'
+
   get 'interview/index'
 
   get 'interview/show'

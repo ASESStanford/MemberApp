@@ -3,10 +3,13 @@ class InterviewController < ApplicationController
     @new_interview = Interview.new
     if current_user.is_admin?
   	  @interviews = Interview.all
+      @my_interviews = @new_interview.belong_to_interviewer(current_user.id)
     elsif current_user.is_reviewer?
       @interviews = @new_interview.get_nil_reviewer
+      @my_interviews = @new_interview.belong_to_interviewer(current_user.id)
     else
       @interviews = @new_interview.get_nil_applicant
+      @my_interviews = @new_interview.belong_to_applicant(current_user.id)
     end
   end
 
@@ -32,6 +35,17 @@ class InterviewController < ApplicationController
       interview.interviewer_id = current_user.id
     elsif current_user.is_applicant?
       interview.applicant_id = current_user.id
+    end
+    interview.save()
+    redirect_to :back
+  end
+
+  def cancel
+    interview = Interview.find(params[:id])
+    if current_user.is_admin? or current_user.is_reviewer?
+      interview.interviewer_id = nil
+    elsif current_user.is_applicant?
+      interview.applicant_id = nil
     end
     interview.save()
     redirect_to :back
