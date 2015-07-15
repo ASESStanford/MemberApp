@@ -5,10 +5,10 @@ class InterviewController < ApplicationController
   	  @interviews = Interview.all
       @my_interviews = @new_interview.belong_to_interviewer(current_user.id)
     elsif current_user.is_reviewer?
-      @interviews = @new_interview.get_nil_reviewer
+      @interviews = @new_interview.get_nil_interviewer
       @my_interviews = @new_interview.belong_to_interviewer(current_user.id)
     else
-      @interviews = @new_interview.get_nil_applicant
+      @interviews = @new_interview.get_available_interviews
       @my_interviews = @new_interview.belong_to_applicant(current_user.id)
     end
   end

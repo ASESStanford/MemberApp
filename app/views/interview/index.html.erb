@@ -1,3 +1,4 @@
+<% if not @my_interviews.blank? %>
 <h2>Your Interviews</h2>
 <table>
 	<tr>
@@ -19,6 +20,10 @@
 	</tr>
 	<% end %>
 </table>
+<% else %>
+<p>You don't have any interviews scheduled.</p>
+<% end %>
+<% if not @interviews.blank? %>
 <h2>All Interviews</h2>
 <table>
 	<tr>
@@ -40,6 +45,9 @@
 	</tr>
 	<% end %>
 </table>
+<% else %>
+<p>There are no interviews available.</p>
+<% end %>
 <% if current_user.is_admin? %>
 <h3>Create New Interview Timeslot</h3>
 <%= form_for @new_interview, url: {action: :create} do |f| %>
