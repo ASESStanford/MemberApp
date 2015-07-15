@@ -1,3 +1,4 @@
+<h2>Your Interviews</h2>
 <table>
 	<tr>
 		<td>id</td>
@@ -5,6 +6,28 @@
 		<td>Interviewer Name</td>
 		<td>Datetime</td>
 		<td>Location</td>
+		<td>Cancel</td>
+	</tr>
+	<% @my_interviews.each do |i| %>
+	<tr>
+		<td><%= link_to i.id, interview_path(i) %></td>
+		<td><%= i.applicant_name %></td>
+		<td><%= i.interviewer_name %></td>
+		<td><%= i.time %></td>
+		<td><%= i.location %></td>
+		<td><%= link_to "Cancel", interview_cancel_path(i.id) %></td>
+	</tr>
+	<% end %>
+</table>
+<h2>All Interviews</h2>
+<table>
+	<tr>
+		<td>id</td>
+		<td>Applicant Name</td>
+		<td>Interviewer Name</td>
+		<td>Datetime</td>
+		<td>Location</td>
+		<td>Sign Up</td>
 	</tr>
 	<% @interviews.each do |i| %>
 	<tr>
@@ -13,12 +36,15 @@
 		<td><%= i.interviewer_name %></td>
 		<td><%= i.time %></td>
 		<td><%= i.location %></td>
+		<td><%= link_to "Sign Up", interview_signup_path(i.id) %></td>
 	</tr>
 	<% end %>
 </table>
+<% if current_user.is_admin? %>
 <h3>Create New Interview Timeslot</h3>
 <%= form_for @new_interview, url: {action: :create} do |f| %>
 	<%= f.text_field :location, placeholder: "location" %>
 	<%= f.datetime_select :time, ampm: true, minute_step: 15 %>
 	<%= f.submit %>
+<% end %>
 <% end %>
