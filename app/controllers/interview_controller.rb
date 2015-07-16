@@ -1,10 +1,7 @@
 class InterviewController < ApplicationController
   def index
     @new_interview = Interview.new
-    if current_user.is_admin?
-  	  @interviews = Interview.all
-      @my_interviews = @new_interview.belong_to_interviewer(current_user.id)
-    elsif current_user.is_reviewer?
+    if current_user.is_admin? or current_user.is_reviewer?
       @interviews = @new_interview.get_nil_interviewer
       @my_interviews = @new_interview.belong_to_interviewer(current_user.id)
     else
@@ -49,6 +46,11 @@ class InterviewController < ApplicationController
     end
     interview.save()
     redirect_to :back
+  end
+
+  def admin
+    @interviews = Interview.all
+    @new_interview = Interview.new
   end
 
   private
