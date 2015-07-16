@@ -32,13 +32,11 @@ class ApplicationSubmissionController < ApplicationController
       # elsif round_num == 2
       #   Postman.first_round_email(user_email).deliver
       # end
-      redirect_to application_submission_index_url
     else
       answers = answer_set_params
       answers.each do |id, text|
         Answer.find(id).update(text: text)
       end
-      redirect_to edit_application_submission_url(params[:id])
     end
     if params[:commit] == "Submit"
       ApplicationSubmission.update(params[:id], :submitted => true)
