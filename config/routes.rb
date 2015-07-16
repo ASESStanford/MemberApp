@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   get 'dashboard/index'
 
+  get 'email/:id/choose', :to => "email#choose", as: 'email_choose'
+
+  get 'email/send', :to => "email#send_email", as: 'email_send'
+
   get 'interview/:id/signup', :to => "interview#signup", as: 'interview_signup'
 
   get 'interview/:id/cancel', :to => "interview#cancel", as: 'interview_cancel'
@@ -22,7 +26,7 @@ Rails.application.routes.draw do
 
   get 'question/review' => 'question#review'
 
-  resources :application_submission, :question, :written_ratings, :interview
+  resources :application_submission, :question, :written_ratings, :interview, :email
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   #get '/application_submission/:id/edit', to: 'application_submission#edit', as: 'application_submission'
