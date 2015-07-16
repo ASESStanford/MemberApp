@@ -1,5 +1,4 @@
 class ApplicationSubmissionController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     redirect_to welcome_index_path
@@ -13,10 +12,20 @@ class ApplicationSubmissionController < ApplicationController
     @apps = @app_form.application_submissions
   end
 
-  def new
+  def new_user 
+    redirect_to new_user_registration_path+"?form_id="+params[:form_id]
+  end
+
+  def new_submission #/application_create/(:form_id)/(:user_id)
+    if !current_user
+      cur_user = User.find(params[:user_id])
+      cur = cur_user.init_application_with_id(params[:form_id])
+      redirect_to edit_application_submission_url(cur.id)
+      return
+    end
     cur = current_user.application_submission
     if cur == nil
-      cur = current_user.init_application
+      cur = current_user.init_application_with_id(params[:form_id])
     end
 	  redirect_to edit_application_submission_url(cur.id)
   end

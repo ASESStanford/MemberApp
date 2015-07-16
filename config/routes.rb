@@ -30,7 +30,8 @@ Rails.application.routes.draw do
 
   resources :application_submission, :question, :written_rating, :interview, :email, :application_form
   devise_for :users, :controllers => { registrations: 'registrations' }
-
+  get "/application_create/:form_id/:user_id" => "application_submission#new_submission"
+  get "/new_app_submission/:form_id" => "application_submission#new_user"
   #get '/application_submission/:id/edit', to: 'application_submission#edit', as: 'application_submission'
 
   get 'application/index'

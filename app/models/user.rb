@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   validates_attachment_size :resume, :less_than => 10.megabytes    
   validates_attachment_content_type :resume, :content_type =>['application/pdf'], :message => ', Only PDF files are allowed. '
 
-  def init_application
-  	return self.create_application_submission(application_form_id:1)
+  def init_application_with_id(f_id)
+  	return self.create_application_submission(application_form_id:f_id)
   end
 
   def user_owns_form?(form_id)
