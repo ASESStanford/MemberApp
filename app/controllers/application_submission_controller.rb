@@ -2,6 +2,7 @@ class ApplicationSubmissionController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    redirect_to welcome_index_path if is_applicant?
     @apps = ApplicationSubmission.all
   end
 

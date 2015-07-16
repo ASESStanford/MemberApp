@@ -1,4 +1,5 @@
 class InterviewController < ApplicationController
+  before_action :authenticate_user!
   def index
     @new_interview = Interview.new
     if current_user.is_admin? or current_user.is_reviewer?
