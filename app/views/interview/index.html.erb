@@ -48,11 +48,3 @@
 <% else %>
 <p>There are no interviews available.</p>
 <% end %>
-<% if current_user.is_admin? %>
-<h3>Create New Interview Timeslot</h3>
-<%= form_for @new_interview, url: {action: :create} do |f| %>
-	<%= f.text_field :location, placeholder: "location" %>
-	<%= f.datetime_select :time, ampm: true, minute_step: 15 %>
-	<%= f.submit %>
-<% end %>
-<% end %>
