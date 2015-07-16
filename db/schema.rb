@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20150716011225) do
     t.integer  "application_form_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "round",               default: 1
     t.boolean  "submitted",           default: false
+    t.integer  "round",               default: 1
   end
 
   add_index "application_submissions", ["application_form_id"], name: "index_application_submissions_on_application_form_id", using: :btree

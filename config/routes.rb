@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'interview/update'
 
+  get 'interview/admin'
+
   get 'written_rating/edit'
 
   get 'written_rating/update'
