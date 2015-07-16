@@ -1,2 +1,16 @@
 <p>Subject: <%= @email.subject %></p>
-<p>Body: <%= @email.body %>
+<p>Body: <%= @email.body %></p>
+<% @submissions.each do |r, s| %>
+<p>
+Send to Round <%= r %>
+</p>
+<p>
+<% s.each do |p| %>
+<%= p.user.name %> (<%= p.user.email %>)
+<% end %>
+</p>
+<%= form_for @email, url: {action: "preview"}, method: :post do |f| %>
+	<%= f.hidden_field :round, value: r %>
+	<%= f.submit "Next" %>
+<% end %>
+<% end %>
