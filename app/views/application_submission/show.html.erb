@@ -1,5 +1,8 @@
 <%= link_to "Back to All Submissions", application_submission_index_path %>
 <BR>
+	<%= link_to image_tag(@user.image.url(:med)), @user.image.url %>
+	<h4>Applicant Name: <%= @user.name %></h4>
+	Resume: <%= link_to "Link", @user.resume.url %>
 <div class="status">Status:
 <% if @application_submission.submitted %>
 	Submitted

@@ -22,16 +22,16 @@ class ApplicationSubmissionController < ApplicationController
   end
 
   def update
-    if params[:round]
+    if params[:round] #change round
       round_num = round_params.keys[0].to_i
       app = ApplicationSubmission.find(params[:id])
       app.update(round: round_num)
-      user_email = app.user.email
-      if round_num == 0
-        Postman.reject_email(user_email).deliver
-      elsif round_num == 2
-        Postman.first_round_email(user_email).deliver
-      end
+      # user_email = app.user.email
+      # if round_num == 0
+      #   Postman.reject_email(user_email).deliver
+      # elsif round_num == 2
+      #   Postman.first_round_email(user_email).deliver
+      # end
       redirect_to application_submission_index_url
     else
       answers = answer_set_params
@@ -57,6 +57,7 @@ class ApplicationSubmissionController < ApplicationController
     if @user_rating == nil
       @user_rating = @application_submission.written_ratings.create(user_id: current_user.id)
     end
+    @user = @application_submission.user
   end
 
   private
