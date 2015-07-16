@@ -10,11 +10,11 @@
 			<td>
 				<%= form_for e, url: {action: "update", id: e.id} do |f| %>
 					<%= f.text_field :subject %>
-					<%= f.text_field :body %>
+					<%= f.text_area :body %>
 					<%= f.submit "Edit" %>
 				<% end %>
 			</td>
-			<td><%= link_to 'Remove', i,
+			<td><%= link_to 'Remove', e,
         :confirm => 'Are you sure?', :method => :delete %></td>
 		</tr>
 	<% end %>
@@ -22,7 +22,7 @@
 		<td>
 			<%= form_for @email, url: {action: "create"} do |f| %>
 				<%= f.text_field :subject %>
-				<%= f.text_field :body %>
+				<%= f.text_area :body %>
 				<%= f.submit "Create" %>
 			<% end %>
 		</td>
