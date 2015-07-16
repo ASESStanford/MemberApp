@@ -26,7 +26,9 @@ Rails.application.routes.draw do
 
   get 'question/review' => 'question#review'
 
-  resources :application_submission, :question, :written_ratings, :interview, :email
+  get '/application_submission_data/:form_id', to: 'application_submission#view_submissions'
+
+  resources :application_submission, :question, :written_rating, :interview, :email, :application_form
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   #get '/application_submission/:id/edit', to: 'application_submission#edit', as: 'application_submission'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716034510) do
+ActiveRecord::Schema.define(version: 20150716183331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,18 @@ ActiveRecord::Schema.define(version: 20150716034510) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "title"
+    t.integer  "user_id"
   end
+
+  add_index "application_forms", ["user_id"], name: "index_application_forms_on_user_id", using: :btree
 
   create_table "application_submissions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "application_form_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.boolean  "submitted",           default: false
     t.integer  "round",               default: 1
+    t.boolean  "submitted",           default: false
   end
 
   add_index "application_submissions", ["application_form_id"], name: "index_application_submissions_on_application_form_id", using: :btree
@@ -113,6 +116,7 @@ ActiveRecord::Schema.define(version: 20150716034510) do
 
   add_foreign_key "answers", "application_submissions"
   add_foreign_key "answers", "questions"
+  add_foreign_key "application_forms", "users"
   add_foreign_key "application_submissions", "application_forms"
   add_foreign_key "application_submissions", "users"
   add_foreign_key "questions", "application_forms"

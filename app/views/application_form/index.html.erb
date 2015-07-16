@@ -1,0 +1,17 @@
+<h3>All Owned Application Forms</h3>
+<table>
+<% @forms.each do |f| %>
+	<tr>
+		<td>Link</td>
+		<td>Title</td>
+		<td>Owner</td>
+		<td># Submissions</td>
+	</tr>
+	<tr>
+		<td><%= link_to "id", application_form_path(f) %></td>
+		<td><%= f.title %></td>
+		<td><%= f.user.name %></td>
+		<td><%= f.application_submissions.size %></td>
+	</tr>
+<% end %>
+</table>

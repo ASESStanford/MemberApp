@@ -1,0 +1,40 @@
+<%= link_to "<< Back to Application Forms", application_form_index_path %>
+<h2>General:</h2>
+<%= form_for @form, url: {action:"update", id: @form.id} do |f| %>
+	<%= f.text_field :title %>
+	<%= f.submit "edit" %>
+
+	<%= link_to 'Delete', @form, :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>
+<h2>Change Questions: </h2>
+<% form = @form_questions %>
+<table>
+	<tr>
+		<td><b>Question</b></td>
+		<td><b>Delete?</b></td>
+	</tr>
+	<% form[:questions].each do |q| %>
+		<tr>
+			<td>
+				<%= form_for q, url: {action: "update", id: q.id} do |f| %>
+					<%= f.text_field :text %>
+					<%= f.hidden_field :application_form_id, value: form[:id] %>
+					<%= f.submit "Edit" %>
+				<% end %>
+			</td>
+			<td><%= link_to 'Remove', q,
+        :confirm => 'Are you sure?', :method => :delete %></td>
+		</tr>
+	<% end %>
+	<tr>
+		<td>
+			<%= form_for @question, url: {action: "create"} do |f| %>
+				<%= f.text_field :text %>
+				<%= f.hidden_field :application_form_id, value: form[:id] %>
+				<%= f.submit "Create" %>
+			<% end %>
+		</td>
+	</tr>
+</table>
+<h2>View Submissions:</h2>
+<%= link_to "link", "/application_submission_data/" + @form.id.to_s %> 

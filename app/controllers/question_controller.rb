@@ -29,6 +29,7 @@ class QuestionController < ApplicationController
   end
 
   private
+    
   	def question_params
   		params.require(:question).permit(:text, :application_form_id)
   	end

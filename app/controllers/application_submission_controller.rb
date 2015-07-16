@@ -2,8 +2,15 @@ class ApplicationSubmissionController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    redirect_to welcome_index_path
+    #redirect_to welcome_index_path if current_user.is_applicant?
+    #@apps = ApplicationSubmission.all
+  end
+
+  def view_submissions
     redirect_to welcome_index_path if current_user.is_applicant?
-    @apps = ApplicationSubmission.all
+    @app_form = ApplicationForm.find(params[:form_id])
+    @apps = @app_form.application_submissions
   end
 
   def new
@@ -42,7 +49,7 @@ class ApplicationSubmissionController < ApplicationController
     if params[:commit] == "Submit"
       ApplicationSubmission.update(params[:id], :submitted => true)
     end
-    redirect_to edit_application_submission_url(params[:id])
+    redirect_to :back
   end
 
   def destroy
@@ -57,9 +64,11 @@ class ApplicationSubmissionController < ApplicationController
       @user_rating = @application_submission.written_ratings.create(user_id: current_user.id)
     end
     @user = @application_submission.user
+    @all_ratings = @application_submission.written_ratings
   end
 
   private
+
     def answer_set_params
       params.require(:answers)
     end

@@ -1,4 +1,4 @@
-<%= link_to "Back to All Submissions", application_submission_index_path %>
+<%= link_to "Back to All Submissions", :back %>
 <BR>
 	<%= link_to image_tag(@user.image.url(:med)), @user.image.url %>
 	<h4>Applicant Name: <%= @user.name %></h4>
@@ -23,9 +23,21 @@
 
 <div id="app_rating">
 	<h2>Rate</h2>
-	<%= form_for @user_rating, url: {action: "update"} do |f| %>
+	<%= form_for @user_rating, url: {action: "update", controller: "written_rating", id: @user_rating.id} do |f| %>
 		<%= f.text_area :comment %>
-		<%= select_tag(:rating, options_for_select([["1",1],["2",2],["3",3]])) %>
+		<%= select_tag("written_rating[rating]", options_for_select([["1",1],["2",2],["3",3]])) %>
 		<%= f.submit %>
+	<% end %>
+</div>
+<div id="all_ratings">
+	<h3>All Ratings:</h3>
+	<% @all_ratings.each do |r| %>
+	<div class="rating_block">
+		<b><%= r.user.name %></b>
+		<i><%= r.rating %></i><BR>
+		<b>Comments:</b><BR>
+		<span class="comment"><%= r.comment %></span>	
+	</div>
+		
 	<% end %>
 </div>
