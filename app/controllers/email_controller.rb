@@ -1,5 +1,7 @@
 class EmailController < ApplicationController
   def index
+    @emails = Email.all
+    @email = Email.new
   end
 
   def show

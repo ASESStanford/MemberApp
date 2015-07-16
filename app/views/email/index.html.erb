@@ -1,2 +1,30 @@
-<h1>Email#index</h1>
-<p>Find me in app/views/email/index.html.erb</p>
+
+<h2>All Emails</h2>
+<table>
+	<tr>
+		<td><b>Content</b></td>
+		<td><b>Delete?</b></td>
+	</tr>
+	<% @emails.each do |e| %>
+		<tr>
+			<td>
+				<%= form_for e, url: {action: "update", id: e.id} do |f| %>
+					<%= f.text_field :subject %>
+					<%= f.text_field :body %>
+					<%= f.submit "Edit" %>
+				<% end %>
+			</td>
+			<td><%= link_to 'Remove', i,
+        :confirm => 'Are you sure?', :method => :delete %></td>
+		</tr>
+	<% end %>
+	<tr>
+		<td>
+			<%= form_for @email, url: {action: "create"} do |f| %>
+				<%= f.text_field :subject %>
+				<%= f.text_field :body %>
+				<%= f.submit "Create" %>
+			<% end %>
+		</td>
+	</tr>
+</table>

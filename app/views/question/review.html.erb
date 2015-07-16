@@ -12,7 +12,7 @@
 					<%= form_for q, url: {action: "update", id: q.id} do |f| %>
 						<%= f.text_field :text %>
 						<%= f.hidden_field :application_form_id, value: form[:id] %>
-						<%= f.submit "edit" %>
+						<%= f.submit "Edit" %>
 					<% end %>
 				</td>
 				<td><%= link_to 'Remove', q,
