@@ -36,4 +36,20 @@ class User < ActiveRecord::Base
   def is_applicant?
     return role == 0
   end
+
+  def first_name
+    if name.split.count > 1
+      name.split.first
+    else
+      name
+    end
+  end
+
+  def last_name
+    if name.split.count > 1
+      name.split.last
+    else
+      name
+    end
+  end
 end

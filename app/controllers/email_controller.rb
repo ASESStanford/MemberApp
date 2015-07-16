@@ -33,14 +33,36 @@ class EmailController < ApplicationController
 
   def choose
     @email = Email.find(params[:id])
+    @submissions = ApplicationSubmission.all.group_by(&:round)
+  end
+
+  def preview
+    @email = Email.find(params[:id])
+    @submissions = ApplicationSubmission.where(round: params[:email][:round])
+    @round = params[:email][:round]
   end
 
   def send_email
-    @email = Email.find(params[:id])
+    email = Email.find(params[:id])
+    submissions = ApplicationSubmission.where(round: params[:email][:round])
+    mail(email, submissions)
+    redirect_to email_index_path
   end
 
   private
     def email_params
       params.require(:email).permit(:subject, :body)
+    end
+    def mail(email, submissions)
+      submissions.each do |s|
+        postmark(s.user.email, 
+          view_context.substitute_name(email.subject, s.user), 
+          view_context.substitute_name(email.body, s.user))
+      end
+    end
+    def postmark(to, subject, body)
+      puts to
+      puts subject
+      puts body
     end
 end

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   get 'email/:id/choose', :to => "email#choose", as: 'email_choose'
 
-  get 'email/send', :to => "email#send_email", as: 'email_send'
+  post 'email/:id/preview', :to => "email#preview", as: 'email_preview'
+
+  post 'email/:id/send', :to => "email#send_email", as: 'email_send'
 
   get 'interview/:id/signup', :to => "interview#signup", as: 'interview_signup'
 

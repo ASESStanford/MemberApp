@@ -1,0 +1,9 @@
+<% @submissions.each do |s| %>
+<p>To: <%= s.user.name %> (<%= s.user.email %>)</p>
+<p>Subject: <%= substitute_name(@email.subject, s.user) %></p>
+<p>Body: <%= substitute_name(@email.body, s.user) %></p>
+<% end %>
+<%= form_for @email, url: {action: "send_email"}, method: :post do |f| %>
+	<%= f.hidden_field :round, value: @round %>
+	<%= f.submit "Send" %>
+<% end %>
