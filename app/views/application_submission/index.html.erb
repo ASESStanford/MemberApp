@@ -1,28 +1,43 @@
 <table>
 	<tr>
-		<td>Application Name</td>
-		<td>Avg Score</td>
 		<td>Rated?</td>
+		<td>Application Name</td>
+		<td>Written Avg Score</td>
+		<td>Interview</td>
 		<% if current_user.is_admin? %>
-		<td>Accept/Reject</td>
+		<td>Status</td>
+		<td>Action</td>
 		<% end %>
 	</tr>
 	<% @apps.each do |app| %>
+		<% interview = Interview.find_by_applicant_id(app.user.id) %>
 		<tr>
+			<td><%= bool_to_string(app.has_been_rated_by(current_user.id)) %></td>
 			<td><%= link_to app.applicant_name, app %></td>
 			<td><%= app.avg_written_rating %></td>
-			<td><%= bool_to_string(app.has_been_rated_by(current_user.id)) %></td>
+			<td>
+				<% if interview == nil %>
+					n/a
+				<% else %>
+					<%= link_to "link", interview_path(interview.id) %>
+				<% end %>
+			</td>
 			<td>
 				<% if current_user.is_admin? %>
-					<% if app.round == 1 %> <!-- magic number, if still in written app review round -->
-						<%= form_for app, url: application_submission_path(app), method: :patch do |f| %>
-							<%= f.submit "yes", name:'round[2]', data:{ confirm:'Are you would like to accept this applicant? This process is irreversible.'} %>
-							<%= f.submit "no", name:'round[0]', data:{confirm:'Are you would like to reject this applicant? This process is irreversible.'} %>
-						<% end %>
+					<% if app.round == 1 %> <!-- not modified -->
+						-
 					<% elsif app.round == 0 %> <!-- rejected -->
 						Rejected
-					<% else %>	<!-- moved to interviews -->
+					<% else %>	<!-- moved on -->
 						OK				
+					<% end %>
+				<% end %>
+			</td>
+			<td>
+				<% if current_user.is_admin? %>
+					<%= form_for app, url: application_submission_path(app), method: :patch do |f| %>
+						<%= f.submit "move on", name:'round[2]', data:{ confirm:'Are you would like to move this applicant on?'} %>
+						<%= f.submit "reject", name:'round[0]', data:{confirm:'Are you would like to reject this applicant?'} %>
 					<% end %>
 				<% end %>
 			</td>
