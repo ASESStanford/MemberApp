@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'dashboard/index'
+
   get 'email/:id/choose', :to => "email#choose", as: 'email_choose'
 
   get 'email/send', :to => "email#send_email", as: 'email_send'

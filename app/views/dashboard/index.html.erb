@@ -1,0 +1,10 @@
+<h1>Dashboard</h1>
+<% if current_user.is_admin? %>
+<%= link_to "Change/Add/Remove Application Questions", "/question/review" %><BR>
+<%= link_to "Change/Add/Remove Interview Timeslots", interview_admin_path %><BR>
+<% end %>
+<% if !current_user.is_applicant? %>
+<%= link_to "View All App Submissions", application_submission_index_path %><BR>
+<%= link_to "Sign Up for Interviews", interview_index_path %><BR>
+<% end %>
+<%= link_to "View My Application", application_submission_path(current_user.application_submission.id) %><BR>
