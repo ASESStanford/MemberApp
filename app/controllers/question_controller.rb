@@ -1,7 +1,7 @@
 class QuestionController < ApplicationController
   before_action :authenticate_user!
   def review
-    redirect_to welcome_index_path if is_applicant?
+    redirect_to welcome_index_path if current_user.is_applicant?
   	all_forms = ApplicationForm.all
   	@form_questions = all_forms.map{|f| {id: f.id, questions: f.questions, title: f.title}}
   	@question = Question.new
