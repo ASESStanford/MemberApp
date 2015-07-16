@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'email/index'
+
+  get 'email/show'
+
+  get 'email/new'
+
+  get 'email/create'
+
+  get 'email/edit'
+
+  get 'email/update'
+
+  get 'email/destroy'
+
   get 'interview/:id/signup', :to => "interview#signup", as: 'interview_signup'
 
   get 'interview/:id/cancel', :to => "interview#cancel", as: 'interview_cancel'
