@@ -21,7 +21,11 @@ class ApplicationSubmission < ActiveRecord::Base
     sum_rating = written_ratings.inject(0) do |sum, x| 
       sum = x[:rating].to_i + sum if x 
     end
-    return sum_rating/ written_ratings.size
+    if written_ratings.empty?
+      return 0
+    else
+      return sum_rating / written_ratings.size
+    end
   end
 
   def rating_for(user)
