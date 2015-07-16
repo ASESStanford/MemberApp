@@ -31,6 +31,14 @@ class EmailController < ApplicationController
     redirect_to :back
   end
 
+  def choose
+    @email = Email.find(params[:id])
+  end
+
+  def send_email
+    @email = Email.find(params[:id])
+  end
+
   private
     def email_params
       params.require(:email).permit(:subject, :body)
