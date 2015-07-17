@@ -1,4 +1,7 @@
 <%= link_to "<< Back to Application Forms", application_form_index_path %>
+<BR><BR>
+Link to share: <%= link_to request.host_with_port + "/new_app_submission/" + @form.id.to_s, "/new_app_submission/" + @form.id.to_s  %>
+
 <h2>General:</h2>
 <%= form_for @form, url: {action:"update", id: @form.id} do |f| %>
 	<%= f.text_field :title %>

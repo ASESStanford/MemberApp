@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   get "/application_create/:form_id/:user_id" => "application_submission#new_submission"
   get "/new_app_submission/:form_id" => "application_submission#new_user"
+  get "/new_user" => "application_submission#new_admin"         #admin
+
   #get '/application_submission/:id/edit', to: 'application_submission#edit', as: 'application_submission'
 
   get 'application/index'

@@ -5,8 +5,10 @@
 <% if !current_user.is_applicant? %>
 <%= link_to "Sign Up for Interviews", interview_index_path %><BR>
 <% end %>
-<%= link_to "View My Application", application_submission_path(current_user.application_submission.id) %><BR>
-<% if @owned_forms %>
+<% if current_user.is_applicant? %>
+	<%= link_to "View My Application", edit_application_submission_path(current_user.application_submission.id) %><BR>
+<% end %>
+<% if current_user.is_admin? && @owned_forms %>
 	<h4>Your Forms:</h4>
 	<li>
 	<% @owned_forms.each do |o| %>

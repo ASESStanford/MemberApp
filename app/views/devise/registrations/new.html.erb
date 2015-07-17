@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
   <%= devise_error_messages! %>
 
-  <%= f.hidden_field :form_id, value:params[:form_id].to_i %>
+  <%= f.hidden_field :form_id, value: params[:form_id].to_i %>
 
   <div class="field">
     <%= f.label :name %><br />

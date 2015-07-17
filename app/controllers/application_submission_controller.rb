@@ -16,6 +16,10 @@ class ApplicationSubmissionController < ApplicationController
     redirect_to new_user_registration_path+"?form_id="+params[:form_id]
   end
 
+  def new_admin
+    redirect_to new_user_registration_path+"?is_admin=2"
+  end
+
   def new_submission #/application_create/(:form_id)/(:user_id)
     if !current_user
       cur_user = User.find(params[:user_id])
