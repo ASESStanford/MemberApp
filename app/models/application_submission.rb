@@ -4,11 +4,22 @@ class ApplicationSubmission < ActiveRecord::Base
   has_many :written_ratings
   has_many :answers
 
+  # the order of this enum is important
+  # because :unreviewed is mapped to 0 and
+  # 0 is stored in the DB.
+  enum round: [
+    :unreviewed,
+    :written_app_reject,
+    :written_app_accept,
+    :first_interview_reject,
+    :first_interview_accept,
+    :second_interview_reject,
+    :second_interview_accept,
+  ]
+
   def applicant_name
     return user.name
   end
-
-  
 
   def has_been_rated_by(user)
     rating = written_ratings.find_by_user_id(user)
@@ -49,6 +60,5 @@ class ApplicationSubmission < ActiveRecord::Base
     data = self.answers.map{|a| {a.question => a}} 
     return data
   end
-
   
 end
