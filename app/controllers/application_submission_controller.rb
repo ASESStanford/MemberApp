@@ -10,6 +10,9 @@ class ApplicationSubmissionController < ApplicationController
     redirect_to welcome_index_path if current_user.is_applicant?
     @app_form = ApplicationForm.find(params[:form_id])
     @apps = @app_form.application_submissions
+    a = ApplicationSubmission.new
+    @status = a.rounds[:unreviewed]
+    print @status
   end
 
   def new_user 

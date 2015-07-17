@@ -40,6 +40,7 @@
 						<%= f.submit "move on", name:'round[2]', data:{ confirm:'Are you would like to move this applicant on?'} %>
 						<%= f.submit "reject", name:'round[0]', data:{confirm:'Are you would like to reject this applicant?'} %>
 					<% end %>
+					<%= @status %>
 				<% end %>
 			</td>
 		</tr>
