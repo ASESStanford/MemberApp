@@ -25,22 +25,16 @@
 			</td>
 			<td>
 				<% if current_user.is_admin? %>
-					<% if app.round == 1 %> <!-- not modified -->
-						-
-					<% elsif app.round == 0 %> <!-- rejected -->
-						Rejected
-					<% else %>	<!-- moved on -->
-						OK				
-					<% end %>
+					<%= app.round.humanize %>
 				<% end %>
 			</td>
 			<td>
 				<% if current_user.is_admin? %>
 					<%= form_for app, url: application_submission_path(app), method: :patch do |f| %>
-						<%= f.submit "move on", name:'round[2]', data:{ confirm:'Are you would like to move this applicant on?'} %>
-						<%= f.submit "reject", name:'round[0]', data:{confirm:'Are you would like to reject this applicant?'} %>
+						<% @rounds.each do |name, i| %>
+							<%= f.submit name.humanize, name:'round[' + i.to_s + ']', data:{confirm:'Fosho?'} %>
+						<% end %>
 					<% end %>
-					<%= @status %>
 				<% end %>
 			</td>
 		</tr>

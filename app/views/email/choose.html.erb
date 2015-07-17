@@ -2,7 +2,7 @@
 <p>Body: <%= @email.body %></p>
 <% @submissions.each do |r, s| %>
 <p>
-Send to Round <%= r %>
+Send to <b><%= r.humanize %></b>, which includes the following people:
 </p>
 <p>
 <% s.each do |p| %>
@@ -13,4 +13,5 @@ Send to Round <%= r %>
 	<%= f.hidden_field :round, value: r %>
 	<%= f.submit "Next" %>
 <% end %>
+<br />
 <% end %>

@@ -4,6 +4,9 @@ class ApplicationSubmission < ActiveRecord::Base
   has_many :written_ratings
   has_many :answers
 
+  # the order of this enum is important
+  # because :unreviewed is mapped to 0 and
+  # 0 is stored in the DB.
   enum round: [
     :unreviewed,
     :written_app_reject,
