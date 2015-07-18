@@ -15,6 +15,9 @@ class InterviewController < ApplicationController
   end
 
   def update
+    i = Interview.find(params[:id])
+    i.update!(interview_update_params)
+    redirect_to :back
   end
 
   def create
@@ -55,6 +58,9 @@ class InterviewController < ApplicationController
   end
 
   private
+    def interview_update_params
+      params.require(:interview).permit(:rating, :comment)
+    end
   	def interview_params
   		params.require(:interview)
   	end
