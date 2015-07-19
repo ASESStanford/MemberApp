@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'summit/create'
+
+  get 'summit/new'
+
   get 'dashboard/index'
 
   get 'email/:id/choose', :to => "email#choose", as: 'email_choose'
