@@ -7,6 +7,7 @@
 		<td>Interviewer Name</td>
 		<td>Datetime</td>
 		<td>Location</td>
+		<td>Rating & Comment</td>
 	</tr>
 	<% @interviews.each do |i| %>
 	<tr>
@@ -15,6 +16,13 @@
 		<td><%= i.interviewer_name %></td>
 		<td><%= i.time %></td>
 		<td><%= i.location %></td>
+		<td>
+		<%= form_for i, url: {action: "update", controller: "interview", id: i.id} do |f| %>
+			<%= f.text_area :comment %>
+			<%= select_tag("interview[rating]", options_for_select(["1", "2", "3"],  i.rating)) %>
+			<%= f.submit %>
+		<% end %>
+		</td>
 	</tr>
 	<% end %>
 </table>
