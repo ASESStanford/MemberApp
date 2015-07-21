@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'dashboard/index'
 
+  post 'summit/new', :to => "summit#create"
+
   get 'email/:id/choose', :to => "email#choose", as: 'email_choose'
 
   post 'email/:id/preview', :to => "email#preview", as: 'email_preview'
