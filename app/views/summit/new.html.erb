@@ -1,8 +1,27 @@
 <div class="container">
-	<div class="progress-bar"></div>
+	<div class="progress_bar">
+		<ul id="steps">
+			<li class="basic current"><a href="#form-basic">Basic</a>
+				<div class="dot"></div>
+			</li>
+		    <li class="location"><a href="#form-location">Location</a>
+				<div class="dot"></div>
+		    </li>
+		    <li class="short_a"><a href="#form-short-answer">Short Answer</a>
+				<div class="dot"></div>
+		    </li>
+		    <li class="long_a"><a href="#form-long-answer">Long Answer</a>
+				<div class="dot"></div>
+		    </li>
+		    <li class="done"><a href="#form-done">Done!</a>
+				<div class="dot"></div>
+		    </li>
+		    <span class="stretch"></span>
+		</ul>
+	</div>
 	<%= form_for @user, url:"/summit/new" do |f| %>
 	<!-- <form action="" method="post"> -->
-		<div id="form-basic">
+		<div class="pane" id="form-basic">
 			<div class="row">
 				<h2>Alright, on to the questions.</h2>
 			</div>
@@ -113,7 +132,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="form-location">
+		<div class="pane" id="form-location">
 			<div class="row">
 				<h2>Hi, David! Where are you from?</h2>
 			</div>
@@ -152,7 +171,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="form-short-answer">
+		<div class="pane" id="form-short-answer">
 			<div class="row">
 				<h2>IIT Delhi, impressive! You have no trouble with these short answer questions!</h2>
 			</div>
@@ -191,7 +210,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="form-long-answer">
+		<div class="pane" id="form-long-answer">
 			<div class="row">
 				<h2>Almost there David! Last section, here's where we really get to know you!</h2>
 			</div>
@@ -236,7 +255,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="form-done"></div>
+		<div class="pane" id="form-done"></div>
 		<%= f.submit %>
 	<!-- </form> -->
 	<% end %>
