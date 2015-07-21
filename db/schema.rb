@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718032636) do
+ActiveRecord::Schema.define(version: 20150720042200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20150718032636) do
     t.integer  "application_form_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.boolean  "submitted",           default: false
     t.integer  "round",               default: 1
+    t.boolean  "submitted",           default: false
   end
 
   add_index "application_submissions", ["application_form_id"], name: "index_application_submissions_on_application_form_id", using: :btree
