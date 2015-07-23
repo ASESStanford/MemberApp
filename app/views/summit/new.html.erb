@@ -1,20 +1,35 @@
+
 <div class="container">
 	<div class="progress_bar">
 		<ul id="steps">
+			<div id="squeeze">
+				<div id="scrollBar"></div>
+			</div>
+			
 			<li class="basic current"><a href="#form-basic">Basic</a>
-				<div class="dot"></div>
+				<div class="dot-surround"><div class="dot"></div>
+				<div class="dot-white"></div>
+				<div class="dot-blue"></div></div>
 			</li>
 		    <li class="location"><a href="#form-location">Location</a>
-				<div class="dot"></div>
+				<div class="dot-surround"><div class="dot"></div>
+				<div class="dot-white"></div>
+				<div class="dot-blue"></div></div>
 		    </li>
 		    <li class="short_a"><a href="#form-short-answer">Short Answer</a>
-				<div class="dot"></div>
+				<div class="dot-surround"><div class="dot"></div>
+				<div class="dot-white"></div>
+				<div class="dot-blue"></div></div>
 		    </li>
 		    <li class="long_a"><a href="#form-long-answer">Long Answer</a>
-				<div class="dot"></div>
+				<div class="dot-surround"><div class="dot"></div>
+				<div class="dot-white"></div>
+				<div class="dot-blue"></div></div>
 		    </li>
 		    <li class="done"><a href="#form-done">Done!</a>
-				<div class="dot"></div>
+				<div class="dot-surround"><div class="dot"></div>
+				<div class="dot-white"></div>
+				<div class="dot-blue"></div></div>
 		    </li>
 		    <span class="stretch"></span>
 		</ul>
@@ -256,8 +271,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="pane" id="form-done"></div>
-		<%= f.submit %>
+		<div class="pane" id="form-done">
+			<%= f.submit %>
+		</div>
+		
 	<!-- </form> -->
 	<% end %>
 </div>
@@ -265,3 +282,5 @@
 <script>
 $("#summit_app").parsley()
 </script>
+
+

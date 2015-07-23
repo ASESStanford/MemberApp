@@ -6,7 +6,7 @@
   background: #243877;
   height: 100px;
   width: 100%;
-  z-index: 1000; }
+  z-index: 2; }
 
 .pane {
   width: 100%;
@@ -33,35 +33,55 @@ ul#steps li {
   ul#steps li a {
     text-decoration: none;
     color: white; }
+  ul#steps li .dot-surround {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto; }
+  ul#steps li .dot-white {
+    background: white;
+    height: 24px;
+    width: 24px;
+    margin: 0 auto;
+    border-radius: 50%;
+    content: "";
+    z-index: -1;
+    position: relative;
+    top: -17px; }
+  ul#steps li .dot-blue {
+    background: #243877;
+    height: 18px;
+    width: 18px;
+    margin: 0 auto;
+    border-radius: 50%;
+    content: "";
+    z-index: 2;
+    position: relative;
+    top: -38px; }
   ul#steps li .dot {
     background: white;
     position: relative;
     height: 10px;
+    z-index: 4;
     width: 10px;
     margin: 0 auto;
     border-radius: 50%;
+    display: block;
     margin-top: 8px; }
-    ul#steps li .dot:before {
-      background: white;
-      height: 23px;
-      width: 23px;
-      margin: 0 auto;
-      border-radius: 50%;
-      content: "";
-      position: absolute;
-      z-index: -1;
-      left: -6.5px;
-      top: -5.6px; }
-    ul#steps li .dot:after {
-      background: #243877;
-      height: 18px;
-      width: 18px;
-      margin: 0 auto;
-      border-radius: 50%;
-      content: "";
-      position: absolute;
-      z-index: -1;
-      left: -3.8px;
-      top: -3.5px; }
+
+#scrollBar {
+  background: white;
+  display: block;
+  height: 4px;
+  position: absolute;
+  top: 51px;
+  z-index: 3;
+  margin: 0 55px; }
+
+#mytest {
+  position: fixed;
+  bottom: 40px; }
+
+body {
+  height: 1400px; }
 
 /*# sourceMappingURL=summit.css.map */
