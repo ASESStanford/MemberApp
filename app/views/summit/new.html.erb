@@ -278,9 +278,16 @@
 	<!-- </form> -->
 	<% end %>
 </div>
-<%= javascript_include_tag "parsley" %>
+<!--<%= javascript_include_tag "parsley" %>-->
 <script>
-$("#summit_app").parsley()
+
+$(document).ready(function() {
+	// $("#summit_app").parsley();
+    $(document).scrollsnap({
+        snaps: '.pane',
+        proximity: 900
+    });
+});
 </script>
 
 

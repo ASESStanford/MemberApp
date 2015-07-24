@@ -13,23 +13,18 @@
   height: 100vh;
   padding-top: 120px; }
 
-.stretch {
-  width: 100%;
-  display: inline-block;
-  font-size: 0;
-  line-height: 0; }
-
 ul#steps {
   padding: 0 200px;
-  text-align: justify;
-  -ms-text-justify: distribute-all-lines;
-  text-justify: distribute-all-lines; }
+  display: flex;
+  justify-content: center; }
 
 ul#steps li {
   color: white;
-  display: inline-block;
+  display: block;
   padding: 20px 40px;
-  font-family: 'Questrial', sans-serif; }
+  font-family: 'Questrial', sans-serif;
+  width: 20%;
+  text-align: center; }
   ul#steps li a {
     text-decoration: none;
     color: white; }
@@ -75,7 +70,7 @@ ul#steps li {
   position: absolute;
   top: 51px;
   z-index: 3;
-  margin: 0 55px; }
+  margin: 0 100px; }
 
 #mytest {
   position: fixed;
