@@ -37,22 +37,21 @@
 	<%= form_for @user, url:"/summit/new", :html => {:id => "summit_app"} do |f| %>
 	<!-- <form action="" method="post"> -->
 		<div class="pane control-group" id="form-basic">
-			<div class="row help-block"></div>
 			<div class="row">
-				<h2>Alright, on to the questions.</h2>
+				<h2 class="col-md-8 col-md-offset-2 text-center">Alright, on to the questions.</h2>
 			</div>
 			<div class="row">
-				<h3>Let's find out who you are.</h3>
+				<h3 class="col-md-8 col-md-offset-2 text-center">Let's find out who you are.</h3>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<input type="text" name="user[first_name]" placeholder="First Name" required />
+					<input type="text" name="user[first_name]" class="input-lg" placeholder="First Name" required />
 				</div>
 				<div class="col-md-4">
-					<input type="text" name="user[last_name]" placeholder="Last Name" required />
+					<input type="text" name="user[last_name]" class="input-lg" placeholder="Last Name" required />
 				</div>
 				<div class="col-md-4">
-					<input type="email" name="user[email]" placeholder="Email Address" required />
+					<input type="email" name="user[email]" class="input-lg" placeholder="Email Address" required />
 				</div>
 			</div>
 			<div class="row">
@@ -143,29 +142,29 @@
 				<div class="col-md-4">
 					<div class="label-heading">Video Interview</div>
 					<div>
-						<input type="text" name="summit[8]" placeholder="Google Plus or Skype ID" required />
+						<input type="text" name="summit[8]" class="input-lg" placeholder="Google Plus or Skype ID" required />
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="pane" id="form-location">
 			<div class="row">
-				<h2>Hi, David! Where are you from?</h2>
+				<h2 class="col-md-8 col-md-offset-2 text-center">Hi, David! Where are you from?</h2>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<input type="text" name="summit[9]" placeholder="Nationality" required />
+					<input type="text" name="summit[9]" class="input-lg" placeholder="Nationality" required />
 				</div>
 				<div class="col-md-4">
-					<input type="text" name="summit[10]" placeholder="Ethnicity" required />
+					<input type="text" name="summit[10]" class="input-lg" placeholder="Ethnicity" required />
 				</div>
 				<div class="col-md-4">
-					<input type="text" name="summit[11]" placeholder="University Name" required />
+					<input type="text" name="summit[11]" class="input-lg" placeholder="University Name" required />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<input type="text" name="summit[12]" placeholder="Academic Major" required />
+					<input type="text" name="summit[12]" class="input-lg" placeholder="Academic Major" required />
 				</div>
 				<div class="col-md-4">
 					<select name="summit[13]" required>
@@ -189,50 +188,50 @@
 		</div>
 		<div class="pane" id="form-short-answer">
 			<div class="row">
-				<h2>IIT Delhi, impressive! You have no trouble with these short answer questions!</h2>
+				<h2 class="col-md-8 col-md-offset-2 text-center">IIT Delhi, impressive! You have no trouble with these short answer questions!</h2>
 			</div>
 			<div class="row">
-				<h3>Please limit each response to 2 sentences.</h3>
-				<h3>Creative responses are highly encouraged here.</h3>
+				<h3 class="col-md-8 col-md-offset-2 text-center">Please limit each response to 2 sentences.</h3>
+				<h3 class="col-md-8 col-md-offset-2 text-center">Creative responses are highly encouraged here.</h3>
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<input type="text" name="summit[15]" placeholder="Please list 5 words you would use to describe yourself." required />
+					<input type="text" name="summit[15]" class="input-lg" placeholder="Please list 5 words you would use to describe yourself." required />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<input type="text" name="summit[16]" placeholder="What are some of your hobbies and interests? What do you do for fun?" required />
+					<input type="text" name="summit[16]" class="input-lg" placeholder="What are some of your hobbies and interests? What do you do for fun?" required />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<input type="text" name="summit[17]" placeholder="In one sentence, why should we select you for ASES Summit 2016?" required />
+					<input type="text" name="summit[17]" class="input-lg" placeholder="In one sentence, why should we select you for ASES Summit 2016?" required />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<input type="text" name="summit[18]" placeholder="How did you hear about ASES Summit?" required />
+					<input type="text" name="summit[18]" class="input-lg" placeholder="How did you hear about ASES Summit?" required />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<input type="text" name="summit[19]" placeholder="Are you affiliated with an ASES chapter? (optional)" required />
+					<input type="text" name="summit[19]" class="input-lg" placeholder="Are you affiliated with an ASES chapter? (optional)" required />
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<input type="text" name="summit[20]" placeholder="What organizations or activities are you involved with outside of school?" required />
+					<input type="text" name="summit[20]" class="input-lg" placeholder="What organizations or activities are you involved with outside of school?" required />
 				</div>
 			</div>
 		</div>
 		<div class="pane" id="form-long-answer">
 			<div class="row">
-				<h2>Almost there David! Last section, here's where we really get to know you!</h2>
+				<h2 class="col-md-8 col-md-offset-2 text-center">Almost there David! Last section, here's where we really get to know you!</h2>
 			</div>
 			<div class="row">
-				<h3>Please limit each response to 300 words maximum.</h3>
-				<h3>Can't wait to read these.</h3>
+				<h3 class="col-md-8 col-md-offset-2 text-center">Please limit each response to 300 words maximum.</h3>
+				<h3 class="col-md-8 col-md-offset-2 text-center">Can't wait to read these.</h3>
 			</div>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">

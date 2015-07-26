@@ -2,7 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url(http://fonts.googleapis.com/css?family=Questrial);
-
+#summit_app {
+  font-family: "Questrial", Helvetica;
+  h2 {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  h4 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  input[type="text"], input[type="email"], textarea {
+    border: none;
+    border-bottom: 1px #243877 solid;
+    border-radius: 0;
+    outline: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+  }
+}
 .progress_bar {
 	position: fixed;
 	left: 0;
