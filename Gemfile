@@ -38,6 +38,9 @@ gem 'paperclip'
 # Use bootstrap for styling
 gem 'bootstrap-sass', '~> 3.0'
 
+# Use postmark for email sending
+gem 'postmark-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
