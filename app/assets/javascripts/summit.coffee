@@ -5,7 +5,9 @@ $(document).ready ->
     destination = $(elementClicked).offset().top
     $('body, html').animate({ scrollTop: destination})
     return
+  
 
+  
   $(window).on 'scroll', (e) ->
     body = document.body
     html = document.documentElement
@@ -23,6 +25,7 @@ $(document).ready ->
     console.log("width_in_px: " + width_in_px)
     console.log("------------------")
     $('#scrollBar').css width: (width_in_px) + 'px'
+    num_to_circle = width_in_px / width_px 
   return
 
   
