@@ -86,7 +86,7 @@ ul#steps li {
     margin: 0 auto;
   }
   .dot-white {
-    background: white;
+    background: #243877;
     height: 24px;
     width: 24px;
     margin: 0 auto;
@@ -96,6 +96,7 @@ ul#steps li {
     position: relative;
     top: -17px;
   }
+  
   .dot-blue {
     background: #243877;
     height: 18px;
@@ -118,6 +119,9 @@ ul#steps li {
     display: block;
   	margin-top: 8px;
   }
+}
+li.active .dot-surround .dot-white {
+  background: white !important;
 }
 
 #scrollBar {

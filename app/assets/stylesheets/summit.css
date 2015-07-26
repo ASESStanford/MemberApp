@@ -33,7 +33,7 @@ ul#steps li {
     height: 30px;
     margin: 0 auto; }
   ul#steps li .dot-white {
-    background: white;
+    background: #243877;
     height: 24px;
     width: 24px;
     margin: 0 auto;
@@ -62,6 +62,9 @@ ul#steps li {
     border-radius: 50%;
     display: block;
     margin-top: 8px; }
+
+li.active .dot-surround .dot-white {
+  background: white !important; }
 
 #scrollBar {
   background: white;
