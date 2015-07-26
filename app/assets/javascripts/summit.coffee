@@ -8,7 +8,7 @@ $(document).ready ->
     return
 
   addCircles = (barLength, unitLength) ->
-    numCircles = Math.floor(barLength / unitLength) + 1
+    numCircles = Math.floor((barLength / unitLength) + 1.2)
     $("li.step").removeClass("active")
     $("li.step:lt("+ numCircles + ")").addClass("active")
 
