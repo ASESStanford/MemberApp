@@ -26,6 +26,15 @@
     width: 100%;
     font-size: 20px;
   }
+  input[type="submit"] {
+    background: #243877;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    margin: auto;
+  }
   textarea {
     height: 70px;
   }
