@@ -12,7 +12,13 @@ $(document).ready ->
     $("li.step").removeClass("active")
     $("li.step:lt("+ numCircles + ")").addClass("active")
 
-    
+  addDynamicField = (listen_to, output_field) ->
+    $(listen_to).on 'keyup', ->
+        $(output_field).html($(this).val())
+  
+  addDynamicField("#first_name",".name_placeholder")
+  addDynamicField("#college_name",".college_placeholder")
+  
   $(window).on 'scroll', (e) ->
     body = document.body
     html = document.documentElement
@@ -32,6 +38,7 @@ $(document).ready ->
     console.log("------------------")
     $('#scrollBar').css width: (width_in_px) + 'px'
     addCircles(width_in_px,single_width)
+
   return
 
   
