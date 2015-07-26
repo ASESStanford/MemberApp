@@ -8,6 +8,9 @@ class SummitController < ApplicationController
   	a.save
   end
 
+  def send_confirmation_email(email)
+    postmark(email, subject, body)
+
   def create
   	summit_form_id = 1
 
@@ -24,7 +27,7 @@ class SummitController < ApplicationController
   			store_summit_answer(a, id, val)
   		end
   		if a.save
-
+        send_confirmation_email(u.email)
   		else
   			redirect_to :back
   		end
