@@ -16,6 +16,7 @@ class SummitController < ApplicationController
       :html_body => '<p>Hello ' + name + ',</p><p><strong>We have received your Summit application.</strong> We will get in touch with you soon about interviews.</p>',
       :track_opens => 'true'
     )
+  end
 
   def create
   	summit_form_id = 1
