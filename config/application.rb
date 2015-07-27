@@ -23,6 +23,9 @@ module Asesapp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    # so we can compile in Heroku
+    config.assets.initialize_on_precompile = false
+
     # postmark email sending config
     config.action_mailer.delivery_method = :postmark
     config.action_mailer.postmark_settings = { :api_key => "4eb2c178-8d65-446b-8f0f-528604fda3a3" }

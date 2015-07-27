@@ -14,7 +14,7 @@ $(document).ready ->
 
   addDynamicField = (listen_to, output_field) ->
     $(listen_to).on 'keyup', ->
-        $(output_field).html($(this).val())
+      $(output_field).html($(this).val())
   
   addDynamicField("#first_name",".name_placeholder")
   addDynamicField("#college_name",".college_placeholder")
