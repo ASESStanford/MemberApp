@@ -112,7 +112,7 @@ li.active .dot-surround .dot-white {
   height: 4px;
   position: absolute;
   top: 49px;
-  z-index: 3;
+  z-index: -3;
   margin: 0 100px; }
 
 #mytest {
