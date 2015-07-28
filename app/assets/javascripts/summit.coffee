@@ -12,12 +12,15 @@ $(document).ready ->
     $("li.step").removeClass("active")
     $("li.step:lt("+ numCircles + ")").addClass("active")
 
-  addDynamicField = (listen_to, output_field) ->
+  addDynamicField = (listen_to, output_field, default_text) ->
     $(listen_to).on 'keyup', ->
-      $(output_field).html($(this).val())
+      if $(this).val() is ''
+        $(output_field).html(default_text)
+      else
+        $(output_field).html($(this).val())
   
-  addDynamicField("#first_name",".name_placeholder")
-  addDynamicField("#college_name",".college_placeholder")
+  addDynamicField("#first_name",".name_placeholder","my friend")
+  addDynamicField("#college_name",".college_placeholder","You")
   
   calcBarWidth = () ->
     offsets = [$("#form-basic").offset().top,$("#form-location").offset().top,$("#form-short-answer").offset().top,$("#form-long-answer").offset().top,$("#form-done").offset().top]
