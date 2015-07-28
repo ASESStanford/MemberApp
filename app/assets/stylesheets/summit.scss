@@ -1,21 +1,56 @@
 // Place all the styles related to the Summit controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url(http://fonts.googleapis.com/css?family=Questrial);
+// @import url(http://fonts.googleapis.com/css?family=Questrial);
+@font-face {
+    font-family: 'Gotham';
+    src: font-url('Gotham-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gotham';
+    src: font-url('Gotham-Book.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gotham';
+    src: font-url('Gotham-Medium.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gotham';
+    src: font-url('Gotham-Bold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+body {
+  font-size: 22px !important;
+  font-family: 'Gotham', Helvetica !important;
+}
 #summit_app {
-  font-family: "Questrial", Helvetica;
   h2 {
-    font-size: 40px;
+    font-size: 2.25em;
     font-weight: bold;
+    line-height: 1.625em;
   }
   h3 {
-    font-size: 28px;
+    font-size: 1.75em;
     font-weight: bold;
-    line-height: 40px;
+    line-height: 1.375em;
   }
   h4 {
-    font-size: 18px;
+    font-size: 1.2em;
     font-weight: bold;
+    line-height: 0.625em;
+    margin-top: 30px;
+  }
+  h5 {
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 0.625em;
   }
   input[type="text"], input[type="email"], textarea {
     border: none;
@@ -25,7 +60,8 @@
     padding-left: 0px;
     padding-right: 0px;
     width: 100%;
-    font-size: 18px;
+    height: 50px;
+    font-size: 1em;
   }
   input[type="submit"] {
     background: #243877;
@@ -37,17 +73,19 @@
     margin: auto;
   }
   textarea {
-    height: 60px;
+    height: 72px;
   }
   .row {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
   label {
-    font-size: 18px;
+    font-size: 1em;
     margin-left: 6px;
+    font-weight: 500;
   }
   .label-heading {
-    font-size: 18px;
+    font-size: 1em;
+    font-weight: 500;
     margin-bottom: 12px;
   }
 }

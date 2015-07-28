@@ -24,7 +24,7 @@ module Asesapp
     config.active_record.raise_in_transactional_callbacks = true
 
     # so we can compile in Heroku
-    config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = true
 
     # postmark email sending config
     config.action_mailer.delivery_method = :postmark
