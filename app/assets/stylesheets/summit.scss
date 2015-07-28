@@ -104,7 +104,7 @@ body {
 	padding-top: 118px;
 }
 ul#steps {
-	padding: 0 200px;
+	padding: 0 100px;
 	display: flex;
   justify-content: center;
 }
@@ -115,6 +115,8 @@ ul#steps li {
   font-family: 'Questrial', sans-serif;
   width: 20%;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
   a {
   	text-decoration: none;
   	color: white;
@@ -168,7 +170,7 @@ li.active .dot-surround .dot-white {
   display: block;
   height: 4px;
   position: absolute;
-  top: 49px;
+  top: 60px;
   z-index: -3;
   margin: 0 100px;
 }

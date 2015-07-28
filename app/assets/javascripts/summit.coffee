@@ -52,7 +52,7 @@ $(document).ready ->
     win_height = Math.max(document.documentElement.clientHeight, window.innerHeight or 0)
     single_width = $("li.location .dot").offset().left - $("li.basic .dot").offset().left
     width_px = $("li.done .dot").offset().left - $("li.basic .dot").offset().left
-    bar_offset = $("li.basic .dot").offset().left - 200 + 1
+    bar_offset = $("li.basic .dot").offset().left - 100 + 1
     $('#scrollBar').css(margin: "0 " + bar_offset + 'px')
     width_in_px = $(window).scrollTop() *  width_px / (height  - win_height)
     # console.log("------------------")
