@@ -34,23 +34,24 @@ body {
   h2 {
     font-size: 2.25em;
     font-weight: bold;
-    line-height: 1.625em;
+    line-height: 1.875em;
   }
   h3 {
     font-size: 1.75em;
-    font-weight: bold;
-    line-height: 1.375em;
+    font-weight: bod;
+    line-height: 1.625em;
   }
   h4 {
     font-size: 1.2em;
     font-weight: 600;
-    line-height: 0.625em;
-    margin-top: 30px;
+    line-height: 1.125em;
+    margin-top: 40px;
   }
   h5 {
     font-size: 1.2em;
     font-weight: 500;
-    line-height: 0.625em;
+    line-height: 1.125em;
+    margin-bottom: 30px;
   }
   input[type="text"], input[type="email"], textarea {
     border: none;
@@ -73,7 +74,7 @@ body {
     margin: auto;
   }
   textarea {
-    height: 72px;
+    height: 80px;
   }
   .row {
     margin-bottom: 60px;
