@@ -75,6 +75,7 @@ body {
   }
   textarea {
     height: 80px;
+    margin-bottom: 20px;
   }
   .row {
     margin-bottom: 60px;
@@ -88,6 +89,13 @@ body {
     font-size: 1em;
     font-weight: 500;
     margin-bottom: 12px;
+    span {
+      font-weight: 600;
+    }
+  }
+  .file-upload {
+    margin-top: 40px;
+    font-size: 0.8em;
   }
 }
 .progress_bar {
