@@ -12,21 +12,17 @@ $(document).ready ->
     $("li.step").removeClass("active")
     $("li.step:lt("+ numCircles + ")").addClass("active")
 
-  addDynamicField = (listen_to, output_field) ->
-    $(listen_to).on 'keyup', ->
-      if $(this).val() is ''
-        $(output_field).html(default_text)
-      else
-        $(output_field).html($(this).val())
-  
-  addDynamicField("#first_name",".name_placeholder")
-  addDynamicField("#college_name",".college_placeholder")
+  $("#birth-day, #birth-month, #birth-year").on 'change', ->
+    day = $("#birth-day").val()
+    month = $("#birth-month").val()
+    year = $("#birth-year").val()
+    $("#birth-text").val(month + "/" + day + "/" + year)
 
   $("#first_name").on 'keyup', ->
-      if $(this).val() is ''
-        $(".name_placeholder").html('')
-      else
-        $(".name_placeholder").html(' ' + $(this).val())
+    if $(this).val() is ''
+      $(".name_placeholder").html('')
+    else
+      $(".name_placeholder").html(' ' + $(this).val())
 
   $("#college_name").on 'keyup', ->
       if $(this).val() is ''
