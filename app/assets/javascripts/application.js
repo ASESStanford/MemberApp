@@ -17,4 +17,5 @@
 //= require jquery.scrollstop.min
 //= require jquery.easing
 //= require jquery.scrollsnap
+//= require materialize-sprockets
 //= require_tree .

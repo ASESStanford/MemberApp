@@ -11,66 +11,69 @@
 				<div class="dot-white"></div>
 				<div class="dot-blue"></div></div>
 			</li>
-		    <li class="step location"><a href="#form-location">Location</a>
+			<li class="step location"><a href="#form-location">Location</a>
 				<div class="dot-surround"><div class="dot"></div>
 				<div class="dot-white"></div>
 				<div class="dot-blue"></div></div>
-		    </li>
-		    <li class="step short_a"><a href="#form-short-answer">Short Answer</a>
+			</li>
+			<li class="step short_a"><a href="#form-short-answer">Short Answer</a>
 				<div class="dot-surround"><div class="dot"></div>
 				<div class="dot-white"></div>
 				<div class="dot-blue"></div></div>
-		    </li>
-		    <li class="step long_a"><a href="#form-long-answer">Long Answer</a>
+			</li>
+			<li class="step long_a"><a href="#form-long-answer">Long Answer</a>
 				<div class="dot-surround"><div class="dot"></div>
 				<div class="dot-white"></div>
 				<div class="dot-blue"></div></div>
-		    </li>
-		    <li class="step done"><a href="#form-done">Done!</a>
+			</li>
+			<li class="step done"><a href="#form-done">Done!</a>
 				<div class="dot-surround"><div class="dot"></div>
 				<div class="dot-white"></div>
 				<div class="dot-blue"></div></div>
-		    </li>
-		    <span class="stretch"></span>
+			</li>
+			<span class="stretch"></span>
 		</ul>
 	</div>
 	<%= form_for @user, url:"/summit/new", :html => {:id => "summit_app"} do |f| %>
 	<!-- <form action="" method="post"> -->
 		<div class="pane control-group" id="form-basic">
 			<div class="row heading">
-				<h2 class="col-md-8 col-md-offset-2 text-center">Alright, on to the questions.</h2>
-				<h3 class="col-md-8 col-md-offset-2 text-center">Let's find out who you are.</h3>
+				<h2 class="col s10 offset-s1 center-align">On to the questions.</h2>
+				<h3 class="col s10 offset-s1 center-align">Let's get to know you.</h3>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<input type="text" id="first_name" name="user[first_name]" class="input-lg" placeholder="First Name" required />
+				<div class="col s4 input-field">
+					<input type="text" id="first_name" name="user[first_name]" class="validate" />
+					<label data-error="Please fill this in." for="first_name">First Name</label>
 				</div>
-				<div class="col-md-4">
-					<input type="text" name="user[last_name]" class="input-lg" placeholder="Last Name" required />
+				<div class="col s4 input-field">
+					<input type="text" id="last_name" name="user[last_name]" class="validate" />
+					<label data-error="Please fill this in." for="last_name">Last Name</label>
 				</div>
-				<div class="col-md-4">
-					<input type="email" name="user[email]" class="input-lg" placeholder="Email Address" required />
+				<div class="col s4 input-field">
+					<input type="text" id="email" name="user[email]" class="validate" />
+					<label data-error="Please fill this in." for="email">Email Address</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col s4 input-field gender">
 					<div>
-						<input type="radio" name="summit[6]" id="male" value="Male" required />
-						<label for="male">Male</label>
+						<input type="radio" name="summit[6]" id="male" value="Male" class="with-gap" />
+						<label data-error="Please fill this in." for="male">Male</label>
 					</div>
 					<div>
-						<input type="radio" name="summit[6]" id="female" value="Female" required />
-						<label for="female">Female</label>
+						<input type="radio" name="summit[6]" id="female" value="Female" class="with-gap" />
+						<label data-error="Please fill this in." for="female">Female</label>
 					</div>
 					<div>
-						<input type="radio" name="summit[6]" id="decline" value="Decline to State" required />
-						<label for="decline">Decline to State</label>
+						<input type="radio" name="summit[6]" id="decline" value="Decline to State" class="with-gap" />
+						<label data-error="Please fill this in." for="decline">Decline to State</label>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col s4 input-field birthday">
 					<div class="label-heading">Birthday</div>
 					<div>
-						<select id="birth-month" required>
+						<select id="birth-month">
 							<option value="1">January</option>
 							<option value="2">February</option>
 							<option value="3">March</option>
@@ -84,7 +87,7 @@
 							<option value="11">November</option>
 							<option value="12">December</option>
 						</select>
-						<select id="birth-day" required>
+						<select id="birth-day">
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -117,7 +120,7 @@
 							<option value="30">30</option>
 							<option value="31">31</option>
 						</select>
-						<select id="birth-year" required>
+						<select id="birth-year">
 							<option value="2000">2000</option>
 							<option value="1999">1999</option>
 							<option value="1998">1998</option>
@@ -138,35 +141,39 @@
 						<input type="hidden" name="summit[7]" id="birth-text" value="1/01/2000" />
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col s4 input-field">
 					<div class="label-heading">Video Interview</div>
 					<div>
-						<input type="text" name="summit[8]" class="input-lg" placeholder="Google Plus or Skype ID" required />
+						<input type="text" id="video_interview" name="summit[8]" class="validate" placeholder="Google Plus or Skype ID" />
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="pane" id="form-location">
 			<div class="row">
-				<h3 class="col-md-8 col-md-offset-2 text-center">Hi<span class="name_placeholder"></span>, where are you from?</h3>
+				<h3 class="col s10 offset-s1 center-align">Hi<span class="name_placeholder"></span>, where are you from?</h3>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<input type="text" name="summit[9]" class="input-lg" placeholder="Nationality" required />
+				<div class="col s4 input-field">
+					<input type="text" id="nationality" name="summit[9]" class="validate" />
+					<label data-error="Please fill this in." for="nationality">Nationality</label>
 				</div>
-				<div class="col-md-4">
-					<input type="text" name="summit[10]" class="input-lg" placeholder="Ethnicity" required />
+				<div class="col s4 input-field">
+					<input type="text" id="ethnicity" name="summit[10]" class="validate" />
+					<label data-error="Please fill this in." for="ethnicity">Ethnicity</label>
 				</div>
-				<div class="col-md-4">
-					<input type="text" id="college_name" name="summit[11]" class="input-lg" placeholder="University Name" required />
+				<div class="col s4 input-field">
+					<input type="text" id="college_name" name="summit[11]" class="validate" />
+					<label data-error="Please fill this in." for="college_name">University Name</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<input type="text" name="summit[12]" class="input-lg" placeholder="Academic Major" required />
+				<div class="col s4 input-field">
+					<input type="text" id="major" name="summit[12]" class="validate" />
+					<label data-error="Please fill this in." for="major">Academic Major</label>
 				</div>
-				<div class="col-md-4">
-					<select name="summit[13]" required>
+				<div class="col s4 input-field">
+					<select name="summit[13]">
 						<option>Year of Study</option>
 						<option value="Freshmen">Freshmen</option>
 						<option value="Sophomore">Sophomore</option>
@@ -176,8 +183,8 @@
 						<option value="PhD">PhD</option>
 					</select>
 				</div>
-				<div class="col-md-4">
-					<select name="summit[14]" required>
+				<div class="col s4 input-field">
+					<select name="summit[14]">
 						<option>Degree Program</option>
 						<option value="Bachelor of Arts">Bachelor of Arts</option>
 						<option value="Bachelor of Science">Bachelor of Science</option>
@@ -187,105 +194,133 @@
 		</div>
 		<div class="pane" id="form-short-answer">
 			<div class="row">
-				<h3 class="col-md-8 col-md-offset-2 text-center"><span class="college_placeholder">Impressive</span>! You have no trouble with these short answer questions!</h3>
-				<h4 class="col-md-8 col-md-offset-2 text-center">Please limit each response to 2 sentences.</h4>
-				<h5 class="col-md-8 col-md-offset-2 text-center">Creative responses are highly encouraged here.</h5>
+				<h3 class="col s10 offset-s1 center-align"><span class="college_placeholder">Impressive</span>! You have no trouble with these short answer questions!</h3>
+				<h4 class="col s10 offset-s1 center-align">Please limit each response to 2 sentences.</h4>
+				<h5 class="col s10 offset-s1 center-align">Creative responses are highly encouraged here.</h5>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[15]" placeholder="Please list 5 words you would use to describe yourself."></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="five-words" name="summit[15]"></textarea>
+					<label data-error="Please fill this in." for="five-words">Please list 5 words you would use to describe yourself.</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[16]" placeholder="What are some of your hobbies and interests? What do you do for fun?"></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="hobbies-interests" name="summit[16]"></textarea>
+					<label data-error="Please fill this in." for="hobbies-interests">What are some of your hobbies and interests? What do you do for fun?</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[17]" placeholder="In one sentence, why should we select you for ASES Summit 2016?"></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="why-select" name="summit[17]"></textarea>
+					<label data-error="Please fill this in." for="why-select">In one sentence, why should we select you for ASES Summit 2016?</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[18]" placeholder="How did you hear about ASES Summit?"></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="hear" name="summit[18]"></textarea>
+					<label data-error="Please fill this in." for="hear">How did you hear about ASES Summit?</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[19]" placeholder="Are you affiliated with an ASES chapter? (optional)"></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="affiliation" name="summit[19]"></textarea>
+					<label data-error="Please fill this in." for="affiliation">Are you affiliated with an ASES chapter? (optional)</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[20]" placeholder="What organizations or activities are you involved with outside of school?"></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="organizations-activities" name="summit[20]"></textarea>
+					<label data-error="Please fill this in." for="organizations-activities">What organizations or activities are you involved with outside of school?</label>
 				</div>
 			</div>
 		</div>
 		<div class="pane" id="form-long-answer">
 			<div class="row">
-				<h3 class="col-md-8 col-md-offset-2 text-center">Almost done<span class="name_placeholder"></span>! Last section, here's where we really get to know you!</h3>
-				<h4 class="col-md-8 col-md-offset-2 text-center">Please limit each response to 300 words maximum.</h4>
-				<h5 class="col-md-8 col-md-offset-2 text-center">Can't wait to read these.</h5>
+				<h3 class="col s10 offset-s1 center-align">Almost done<span class="name_placeholder"></span>! Last section, here's where we really get to know you!</h3>
+				<h4 class="col s10 offset-s1 center-align">Please limit each response to 300 words maximum.</h4>
+				<h5 class="col s10 offset-s1 center-align">Can't wait to read these.</h5>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[21]" placeholder="Please discuss your entrepreneurship or business experience. How will you contribute to Summit's dynamic and vivacious atmosphere?" required></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="experience" name="summit[21]"></textarea>
+					<label data-error="Please fill this in." for="experience">Discuss your entrepreneurship/business experience. How will you contribute to Summit's dynamic, vivacious atmosphere?</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[22]" placeholder="Why do you want to be a part of ASES Summit? What do you hope to gain from Summit?" required></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="why-participate" name="summit[22]"></textarea>
+					<label data-error="Please fill this in." for="why-participate">Why do you want to be a part of ASES Summit? What do you hope to gain from Summit?</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[23]" placeholder="What is your favorite mobile app? Why is it your favorite, what makes it stand out to you?" required></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="favorite-app" name="summit[23]"></textarea>
+					<label data-error="Please fill this in." for="favorite-app">What is your favorite mobile app? Why is it your favorite, what makes it stand out to you?</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<textarea name="summit[24]" placeholder="What else should we know about you? (optional)" required></textarea>
+				<div class="col s8 offset-s2 input-field">
+					<textarea class="materialize-textarea validate" id="anything-else" name="summit[24]"></textarea>
+					<label data-error="Please fill this in." for="anything-else">What else should we know about you? (optional)</label>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="label-heading"><span>Resume</span> (please save as "LASTNAME_FIRSTNAME_RESUME.pdf")</div>
+				<div class="col s8 offset-s2 file-field input-field">
+					<div class="label-heading"><span>Resume</span> (save as <code>LASTNAME_FIRSTNAME_RESUME.pdf</code>)</div>
 					<div class="file-upload">
-    					<%= f.file_field :resume %>
+						<input class="file-path validate" type="text"/>
+						<div class="btn">
+							<span>Upload</span>
+							<input type="file" name="user[resume]" id="user_resume">
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="label-heading"><span>Head Shot</span> (please save as "LASTNAME_FIRSTNAME_PHOTO.png")</div>
+				<div class="col s8 offset-s2 file-field input-field">
+					<div class="label-heading"><span>Head Shot</span> (save as <code>LASTNAME_FIRSTNAME_PHOTO.png</code>)</div>
 					<div class="file-upload">
-						<%= f.file_field :image %>
+						<input class="file-path validate" type="text"/>
+						<div class="btn">
+							<span>Upload</span>
+							<input type="file" name="user[image]" id="user_image">
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="pane" id="form-done">
 			<div class="row">
-				<h2 class="col-md-8 col-md-offset-2 text-center">You made it.</h3>
+				<h2 class="col s8 offset-s2 center-align">You made it.</h3>
 			</div>
-			<div class="row text-center">
-				<%= f.submit "Submit!" %>
+			<div class="row center-align">
+				<input type="submit" name="commit" value="Submit!" class="btn">
 			</div>
 		</div>
 		
 	<!-- </form> -->
 	<% end %>
 </div>
-<%= javascript_include_tag "parsley" %>
 <script>
 
 $(document).ready(function() {
-	$("#summit_app").parsley();
-    // $(document).scrollsnap({
-    //     snaps: '.pane',
-    //     proximity: 900
-    // });
+	$('select').material_select();
+	$('form').on('submit', function(e) {
+		$('input[type="text"], textarea').each(function() {	
+			if ($(this).val() == '') {
+				$(this).addClass('invalid');
+
+				e.preventDefault();
+				$('html, body').animate({
+					scrollTop: $(this).offset().top - 150
+				}, 1000);
+				return false;
+			} else {
+				$(this).removeClass('invalid');
+			}
+		})
+	});
 });
 </script>
 

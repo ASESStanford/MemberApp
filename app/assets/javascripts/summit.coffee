@@ -46,9 +46,9 @@ $(document).ready ->
             # console.log("div-in-height: " + h)
             div_in_height = h - offsets[i-1]
             base_length = i - 1
-    console.log("px_into_div" + px_into_div)
-    console.log("single_width" + single_width)
-    console.log("div_in_height" + div_in_height)
+    # console.log("px_into_div" + px_into_div)
+    # console.log("single_width" + single_width)
+    # console.log("div_in_height" + div_in_height)
     if px_into_div == -1 || div_in_height == 0
         width_in_px = $("li.done .dot").offset().left - $("li.basic .dot").offset().left
     else

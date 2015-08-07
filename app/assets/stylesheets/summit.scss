@@ -30,16 +30,24 @@ body {
   font-size: 22px !important;
   font-family: 'Gotham', Helvetica !important;
 }
+.navbar-text {
+  display: none;
+}
 #summit_app {
+  .caret {
+    top: 22px;
+  }
   h2 {
     font-size: 2.25em;
     font-weight: bold;
     line-height: 1.875em;
+    margin-top: 0;
   }
   h3 {
     font-size: 1.75em;
     font-weight: bold;
     line-height: 1.625em;
+    margin-top: 0;
   }
   h4 {
     font-size: 1.2em;
@@ -53,7 +61,7 @@ body {
     line-height: 1.125em;
     margin-bottom: 1.2em;
   }
-  input[type="text"], input[type="email"], textarea {
+  input[type="text"], textarea {
     border: none;
     border-bottom: 1px #243877 solid;
     border-radius: 0;
@@ -61,29 +69,73 @@ body {
     padding-left: 0px;
     padding-right: 0px;
     width: 100%;
-    height: 2.25em;
     font-size: 1em;
+    box-shadow: none;
   }
-  input[type="submit"] {
-    background: #243877;
-    color: white;
-    padding: 20px 30px;
-    border: none;
+  input[type="text"]{
+    height: 2.5em;
+  }
+  input.invalid + label.active:after, textarea.invalid + label.active:after {
+    display: none;
+  }
+  input.invalid + label:after, textarea.invalid + label:after {
+    font-size: 0.6em;
+  }
+  #form-done .btn {
+    height: 72px;
     font-size: 1.2em;
-    outline: none;
-    margin: auto;
   }
   textarea {
-    height: 3.75em;
     margin-bottom: 1em;
+  }
+  .gender {
+    margin-top: 0px;
+    label {
+      color: #243877;
+    }
+    div {
+      margin-left: -10px;
+      margin-bottom: 5px;
+    }
+  }
+  .birthday {
+    .caret {
+      right: 15px;
+    }
+    .select-wrapper {
+      float: left;
+      &:nth-of-type(1) {
+        width: 50%;
+      }
+      &:nth-of-type(2) {
+        width: 20%;
+      }
+      &:nth-of-type(3) {
+        width: 30%;
+      }
+    }
+  }
+  [type="radio"]:checked + label:after {
+    background-color: #243877;
+    border-color: #243877;
+  }
+  [type="radio"].with-gap:checked + label:before {
+    border-color: #243877;
   }
   .row {
     margin-bottom: 3em;
   }
   label {
     font-size: 1em;
-    margin-left: 0.3em;
     font-weight: 500;
+    width: 100%;
+  }
+  label.active {
+    color: #243877;
+    font-size: 0.8em;
+  }
+  .dropdown-content li > span {
+    color: #243877;
   }
   .label-heading {
     font-size: 1em;
@@ -93,9 +145,23 @@ body {
       font-weight: 600;
     }
   }
+  .btn {
+    background-color: #243877;
+    box-shadow: none;
+    &:hover {
+      background-color: #445897;
+    }
+    &:active {
+      background-color: #041857;
+    }
+  }
   .file-upload {
     margin-top: 2em;
     font-size: 0.8em;
+    input[type="text"] {
+      float: right;
+      width: 75%;
+    }
   }
 }
 .progress_bar {
@@ -110,18 +176,18 @@ body {
 .pane {
 	width: 100%;
 	min-height: 100vh;
-	padding-top: 118px;
+	padding-top: 150px;
 }
 ul#steps {
 	padding: 0 100px;
 	display: flex;
   justify-content: center;
+  margin: 0;
 }
 ul#steps li {
   color: white;
   display: block;
   padding: 18px 40px;
-  font-family: 'Questrial', sans-serif;
   width: 20%;
   text-align: center;
   white-space: nowrap;
@@ -189,4 +255,5 @@ li.active .dot-surround .dot-white {
 }
 body {
   height: 1400px;
+  color: #243877;
 }
