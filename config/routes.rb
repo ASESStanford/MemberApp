@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
 
+  get 'user_role/edit'
+
+  get 'user_role/json'
+
   get 'summit/create'
 
   get 'summit/new'
 
   get 'dashboard/index'
+
+  post 'user_role/change_role', to: "user_role#change_role"
+
+  get 'user_role/edit'
+
+  get 'user_role/json', to: 'user_role#json'
 
   post 'summit/new', :to => "summit#create"
 

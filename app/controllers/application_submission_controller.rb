@@ -78,7 +78,7 @@ class ApplicationSubmissionController < ApplicationController
       @user_rating = @application_submission.written_ratings.create(user_id: current_user.id)
     end
     @user = @application_submission.user
-    @all_ratings = @application_submission.written_ratings
+    @all_ratings = @application_submission.written_ratings.where.not(comment: nil)
   end
 
   private

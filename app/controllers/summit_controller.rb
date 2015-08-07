@@ -27,7 +27,7 @@ class SummitController < ApplicationController
         store_summit_answer(a, id, val)
       end
       if a.save
-        Postman.app_submission_email(params[:user]["email"], params[:user]["first_name"])
+        Postman.app_submission_email(params[:user]["email"], params[:user]["first_name"]).deliver
       else
         redirect_to :back
       end

@@ -1,0 +1,30 @@
+<%= form_for User.new, url: {action: 'change_role', method: "POST"} do |f| %>
+  <input type="text" name="user" id="username" data-user="-1" />
+  <select name="role" id="role">
+    <option value="0">Applicant</option>
+    <option value="1">Reviewer</option>
+    <option value="2">Admin</option>
+  </select>
+  <%= f.submit %>
+<% end %>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#new_user").on("submit", function(e) {
+      $("#username").val($("#username").attr("data-user"));
+      this.submit();
+    });
+    $("#username").autocomplete({
+        source: "/user_role/json",
+        focus: function(e, ui) {
+            $(this).val(ui.item.label);
+            return false;
+        },
+        select: function( event, ui ) {
+            $(this).val(ui.item.label);
+            $(this).attr("data-user",ui.item.value);
+            return false;
+        }
+    });
+  });
+</script>

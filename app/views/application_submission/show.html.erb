@@ -16,7 +16,7 @@
 		answer = qa.values[0]
 	%>
 	<div class="qa_grouping">
-		<span class="question"><%= question.text %></span>
+		<span class="question"><b><%= question.text %></b></span><BR>
 		<span class="answer"><%= answer.text %></span> 
 	</div>
 <% end %>
@@ -29,8 +29,12 @@
 		<%= f.submit %>
 	<% end %>
 </div>
+
 <div id="all_ratings">
 	<h3>All Ratings:</h3>
+	<% if @all_ratings.size == 0 %>
+	<i>No ratings found!</i>
+	<% end %>
 	<% @all_ratings.each do |r| %>
 	<div class="rating_block">
 		<b><%= r.user.name %></b>

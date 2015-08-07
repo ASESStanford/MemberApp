@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-// = require jquery.scrollstop.min
-// = require jquery.easing
-// = require jquery.scrollsnap
+//= require jquery.scrollstop.min
+//= require jquery.easing
+//= require jquery.scrollsnap
 //= require_tree .
