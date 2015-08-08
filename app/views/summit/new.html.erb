@@ -73,8 +73,8 @@
 				<div class="col s4 input-field birthday">
 					<div class="label-heading">Birthday</div>
 					<div>
-						<select id="birth-month">
-							<option>Month</option>
+						<select id="birth-month" class="validate" data-error="Please fill this in.">
+							<option value="">Month</option>
 							<option value="1">January</option>
 							<option value="2">February</option>
 							<option value="3">March</option>
@@ -88,8 +88,8 @@
 							<option value="11">November</option>
 							<option value="12">December</option>
 						</select>
-						<select id="birth-day">
-							<option>Day</option>
+						<select id="birth-day" class="validate" data-error="Please fill this in.">
+							<option value="">Day</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
 							<option value="03">03</option>
@@ -122,8 +122,8 @@
 							<option value="30">30</option>
 							<option value="31">31</option>
 						</select>
-						<select id="birth-year">
-							<option>Year</option>
+						<select id="birth-year" class="validate" data-error="Please fill this in.">
+							<option value="">Year</option>
 							<option value="2000">2000</option>
 							<option value="1999">1999</option>
 							<option value="1998">1998</option>
@@ -144,11 +144,9 @@
 						<input type="hidden" name="summit[7]" id="birth-text" value="1/01/2000" />
 					</div>
 				</div>
-				<div class="col s4 input-field">
-					<div class="label-heading">Video Interview</div>
-					<div>
-						<input type="text" id="video_interview" name="summit[8]" class="validate" placeholder="Google Plus or Skype ID" />
-					</div>
+				<div class="col s4 input-field video-interview">
+					<input type="text" id="video_interview" name="summit[8]" class="validate" />
+					<label data-error="Please fill this in." for="video_interview">Google Plus or Skype ID</label>
 				</div>
 			</div>
 		</div>
@@ -176,8 +174,8 @@
 					<label data-error="Please fill this in." for="major">Academic Major</label>
 				</div>
 				<div class="col s4 input-field">
-					<select name="summit[13]">
-						<option>Year of Study</option>
+					<select name="summit[13]" class="validate" data-error="Please fill this in.">
+						<option value="">Year of Study</option>
 						<option value="Freshmen">Freshmen</option>
 						<option value="Sophomore">Sophomore</option>
 						<option value="Junior">Junior</option>
@@ -187,8 +185,8 @@
 					</select>
 				</div>
 				<div class="col s4 input-field">
-					<select name="summit[14]">
-						<option>Degree Program</option>
+					<select name="summit[14]" class="validate" data-error="Please fill this in.">
+						<option value="">Degree Program</option>
 						<option value="Bachelor of Arts">Bachelor of Arts</option>
 						<option value="Bachelor of Science">Bachelor of Science</option>
 					</select>
@@ -273,6 +271,7 @@
 					<div class="label-heading"><span>Resume</span> (save as <code>LASTNAME_FIRSTNAME_RESUME.pdf</code>)</div>
 					<div class="file-upload">
 						<input class="file-path validate" type="text"/>
+						<label data-error="Please fill this in."></label>
 						<div class="btn">
 							<span>Upload</span>
 							<input type="file" name="user[resume]" id="user_resume">
@@ -285,6 +284,7 @@
 					<div class="label-heading"><span>Head Shot</span> (save as <code>LASTNAME_FIRSTNAME_PHOTO.png</code>)</div>
 					<div class="file-upload">
 						<input class="file-path validate" type="text"/>
+						<label data-error="Please fill this in."></label>
 						<div class="btn">
 							<span>Upload</span>
 							<input type="file" name="user[image]" id="user_image">
@@ -310,19 +310,36 @@
 $(document).ready(function() {
 	$('select').material_select();
 	$('form').on('submit', function(e) {
-		$('input[type="text"], textarea').each(function() {	
+		$('input[type="text"], textarea').each(function() {
 			if ($(this).val() == '') {
 				$(this).addClass('invalid');
-
-				e.preventDefault();
-				$('html, body').animate({
-					scrollTop: $(this).offset().top - 150
-				}, 1000);
-				return false;
 			} else {
 				$(this).removeClass('invalid');
 			}
-		})
+		});
+		if ($('input[type="radio"]:checked').length == 0) {
+			$('.gender').append('<input style="display: none" type="text" class="validate invalid" /><label class="label" data-error="Please fill this in."></label>');
+		} else {
+			$('.gender .validate').remove();
+		}
+		$('select').each(function() {
+			var input = $(this).siblings('input')
+			if ($(this).find('option:selected:first').val() == '') {
+				input.addClass('validate invalid');
+				input.after('<label style="margin-left: -10px" data-error="Please fill this in."></label>');
+			} else {
+				input.removeClass('validate invalid');
+				input.next().remove();
+			}
+		});
+		console.log($('.invalid').length);
+		if ($('.invalid').length > 0) {
+			$('html, body').animate({
+				scrollTop: $('.invalid:first').offset().top - 150
+			}, 1000);
+			e.preventDefault();
+			return false;
+		}
 	});
 });
 </script>

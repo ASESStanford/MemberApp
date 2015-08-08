@@ -78,8 +78,12 @@ body {
   input.invalid + label.active:after, textarea.invalid + label.active:after {
     display: none;
   }
-  input.invalid + label:after, textarea.invalid + label:after {
+  input.invalid + label:after {
     font-size: 0.6em;
+  }
+  textarea.invalid + label:after {
+    font-size: 0.6em;
+    margin-top: 25px;
   }
   #form-done .btn {
     height: 72px;
@@ -96,6 +100,18 @@ body {
     div {
       margin-left: -10px;
       margin-bottom: 5px;
+    }
+    label.label {
+      margin-top: 60px;
+    }
+  }
+  .video-interview {
+    margin-top: 50px;
+    input {
+      margin-top: 11px;
+    }
+    input.invalid + label:after {
+      margin-top: 11px;
     }
   }
   .birthday {
@@ -160,6 +176,10 @@ body {
     input[type="text"] {
       float: right;
       width: 75%;
+    }
+    input.invalid + label:after {
+      margin-top: 50px;
+      font-size: 0.8em;
     }
   }
 }
