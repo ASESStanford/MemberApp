@@ -151,7 +151,7 @@
 			</div>
 		</div>
 		<div class="pane" id="form-location">
-			<div class="row">
+			<div class="row heading">
 				<h3 class="col s10 offset-s1 center-align">Hi<span class="name_placeholder"></span>, where are you from?</h3>
 			</div>
 			<div class="row">
@@ -194,7 +194,7 @@
 			</div>
 		</div>
 		<div class="pane" id="form-short-answer">
-			<div class="row">
+			<div class="row heading">
 				<h3 class="col s10 offset-s1 center-align"><span class="college_placeholder">Impressive</span>! You'll have no trouble with these short answer questions!</h3>
 				<h4 class="col s10 offset-s1 center-align">Please limit each response to 2 sentences.</h4>
 				<h5 class="col s10 offset-s1 center-align">Creative responses are highly encouraged here.</h5>
@@ -237,7 +237,7 @@
 			</div>
 		</div>
 		<div class="pane" id="form-long-answer">
-			<div class="row">
+			<div class="row heading">
 				<h3 class="col s10 offset-s1 center-align">Almost there<span class="name_placeholder"></span>! Last section - here's where we really get to know you!</h3>
 				<h4 class="col s10 offset-s1 center-align">Please limit each response to 300 words maximum.</h4>
 				<h5 class="col s10 offset-s1 center-align">Can't wait to read these.</h5>
@@ -332,7 +332,6 @@ $(document).ready(function() {
 				input.next().remove();
 			}
 		});
-		console.log($('.invalid').length);
 		if ($('.invalid').length > 0) {
 			$('html, body').animate({
 				scrollTop: $('.invalid:first').offset().top - 150

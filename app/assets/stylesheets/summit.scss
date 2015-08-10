@@ -26,9 +26,16 @@
     font-weight: bold;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Gotham';
+    src: font-url('Gotham-Black.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
 body {
   font-size: 22px !important;
   font-family: 'Gotham', Helvetica !important;
+  -webkit-font-smoothing: antialiased;
 }
 .navbar-text {
   display: none;
@@ -39,7 +46,7 @@ body {
   }
   h2 {
     font-size: 2.25em;
-    font-weight: bold;
+    font-weight: 800;
     line-height: 1.875em;
     margin-top: 0;
   }
@@ -54,6 +61,7 @@ body {
     font-weight: 600;
     line-height: 1.125em;
     margin-top: 1.8em;
+    margin-bottom: 0;
   }
   h5 {
     font-size: 1.2em;
@@ -88,9 +96,6 @@ body {
   #form-done .btn {
     height: 72px;
     font-size: 1.2em;
-  }
-  textarea {
-    margin-bottom: 1em;
   }
   .gender {
     margin-top: 0px;
@@ -139,7 +144,7 @@ body {
     border-color: #243877;
   }
   .row {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
   }
   label {
     font-size: 1em;
@@ -148,6 +153,7 @@ body {
   }
   label.active {
     color: #243877;
+    font-size: 0.65em;
   }
   .dropdown-content li > span {
     color: #243877;
@@ -159,6 +165,9 @@ body {
     span {
       font-weight: 600;
     }
+  }
+  .heading {
+    margin-bottom: 3em;
   }
   .btn {
     background-color: #243877;
@@ -211,6 +220,7 @@ ul#steps li {
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
+  font-size: 1em;
   a {
   	text-decoration: none;
   	color: white;
