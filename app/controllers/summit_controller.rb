@@ -1,4 +1,5 @@
 class SummitController < ApplicationController
+  after_action :allow_iframe
   def store_summit_answer(submission, id, value)
     q = Question.find(id.to_i)
     a = Answer.new
@@ -37,5 +38,10 @@ class SummitController < ApplicationController
   def new
     @user = User.new
     @app_sub = ApplicationSubmission.new
+  end
+
+private
+  def allow_iframe
+    response.headers['X-Frame-Options'] = 'ALLOWALL'
   end
 end

@@ -26,14 +26,6 @@ module Asesapp
     # so we can compile in Heroku
     config.assets.initialize_on_precompile = true
 
-    # allow origin policy from anywhere
-    config.middleware.insert_before 0, "Rack::Cors" do
-      allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
-      end
-    end
-
     # postmark email sending config
     # config.action_mailer.delivery_method = :postmark
     # config.action_mailer.postmark_settings = { :api_key => "4eb2c178-8d65-446b-8f0f-528604fda3a3" }
