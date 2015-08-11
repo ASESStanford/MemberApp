@@ -12,7 +12,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => 'ases-app',
+      :bucket => 'ases-files',
       :access_key_id => 'AKIAJHMSIXPHNCWSX55A',
       :secret_access_key => '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'
     }
