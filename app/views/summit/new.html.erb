@@ -34,6 +34,9 @@
 			<span class="stretch"></span>
 		</ul>
 	</div>
+	<% flash.each do |key, value| %>
+	    <div class="alert alert-<%= key %>"><%= value %></div>
+	<% end %>
 	<%= form_for @user, url:"http://ases.herokuapp.com/summit/new", :html => {:id => "summit_app", :multipart => true} do |f| %>
 	<!-- <form action="" method="post"> -->
 		<div class="pane control-group" id="form-basic">

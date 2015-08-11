@@ -29,6 +29,8 @@ class SummitController < ApplicationController
       end
       if a.save
         Postman.app_submission_email(params[:user]["email"], params[:user]["first_name"]).deliver
+        flash[:success] = "Your application has been submitted."
+        redirect_to :action => 'new'
       else
         redirect_to :back
       end
