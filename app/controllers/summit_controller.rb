@@ -28,7 +28,8 @@ class SummitController < ApplicationController
         store_summit_answer(a, id, val)
       end
       if a.save
-        Postman.app_submission_email(params[:user]["email"], params[:user]["first_name"]).deliver
+        # this doesn't work because of Google's increased security, need to figure out another way
+        # Postman.app_submission_email(params[:user]["email"], params[:user]["first_name"]).deliver
         flash[:success] = "Your application has been submitted."
         redirect_to :action => 'new'
       else
