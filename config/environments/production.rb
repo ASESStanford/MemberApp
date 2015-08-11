@@ -1,7 +1,14 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   
-  config.logger = Logger.new(STDOUT)
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => 'ases-app',
+    :access_key_id => 'AKIAJHMSIXPHNCWSX55A',
+    :secret_access_key => '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'
+  }
+}
 
   # Code is not reloaded between requests.
   config.cache_classes = true
