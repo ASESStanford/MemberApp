@@ -1,5 +1,137 @@
+  <div id="info">
+    <section class="full-height" id="home">
+      <section>
+        <header class="grid">
+          <div class="grid__col col--2-of-3">
+            <a id="logo" href="">ASES Summit</a>
+          </div>
+          <a class="mobile" id="mobile-nav-toggle" href="#">
+            <i class="icon hamburger"></i>
+          </a>
+          <div id="nav" class="desktop grid__col col--1-of-3">
+            <ul class="grid">
+              <li class="grid__col col--1-of-1">
+                <!-- <a href="">Menu</a> -->
+              </li>
+            </ul>
+          </div>     
+        </header>
+        <div class="container">
+          <h2>2016 ASES Summit Application</h2>
+          <p class="align center">Summit starts here.</p>
+        </div>
+        <div class="mobile" id="disclaimer">
+          Application accessible on desktop only.
+        </div>
+      </section>
+    </section>
 
-<div class="container">
+    <section id="details" class="full-height">
+      <section>
+        <div class="container">
+          <div class="grid">
+            <div class="grid__col col--1-of-1">
+              <h4>We believe in transparency.</h4>
+              <h4>Here is everything you need to know.</h4>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="grid grid--no-gutter">
+            <div class="deadline grid__col col--1-of-2">
+              <h5>Earlybird Deadline</h5>
+              <p>$500</p>
+              <p>November 20, 2015</p>
+            </div><div class="deadline grid__col col--1-of-2">
+              <h5>Earlybird Deadline</h5>
+              <p>$600</p>
+              <p>January 1, 2016</p>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="grid">
+            <div class="grid__col col--1-of-1">
+              <h4>A breakdown of everything your conference fee does and does not cover.</h4>
+              <ul id="breakdown"> 
+                <li class="include">Speakers, Workshops, &amp; Events</li>
+                <li class="include">Stanford Room Host</li>
+                <li class="include">Food</li>
+                <li class="include">Local Transportation</li>
+                <li class="include">An Incredible Experience</li>
+                <li class="exclude">We do not cover your flight fare</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="process" class="full-height">
+      <section>
+        <div class="container intro grid">
+          <div class="grid__col col--1-of-1">
+            <h4>Let’s take a look at the application process.</h4>
+            <small>As much as we'd love to, we can't grant everyone an interview – there's simply too many of you. Every Summit for the past 17 years, we've worked hard on improving our application process – we aim for simplicity, authenticity, and fairness.</small>
+          </div>
+        </div>
+        <div class="container steps">
+          <div class="step">
+            <div class="number">1</div>
+            <div class="info">
+              <h4>Online Application</h4>
+              <p>
+                <b>Earlybird:</b> 11/20/15 @ 23:59 PST
+              </p>
+              <p>
+                <b>Regular:</b> 01/01/16 @ 23:59 PST
+              </p>
+              <small>
+                <b>Protip:</b> Applying early significantly improves your chances of making it to an interview.
+              </small>
+            </div>
+          </div>
+          <div class="step">
+            <div class="number">2</div>
+            <div class="info">
+              <h4>Video Call Interview</h4>
+              <p>
+                Nice work! We'll email you in January with your interview date!
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="number">3</div>
+            <div class="info">
+              <h4>2016 ASES Summit</h4>
+              <p>
+                Congratulations! See you on April 5, 2016!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="app-tips" class="full-height">
+      <section>
+        <div class="container grid">
+          <div class="grid__col col--1-of-1">
+            <h2>Some application tips.</h2>
+            <h4>Tip 1</h4>
+            <p>Be yourself. Duh! But you’d be surprised by how many generic applications we receive every year. Don’t tell us what you think we want to hear; being genuine and real goes a long, long way. If you’re a passionate person, show your passion; if you’re a funny person, give us your best joke; if you’re a weird individual, show us the weird, we love weird! ...Just not too weird…</p>
+            <h4>Tip 2</h4>
+            <p>Put in the time. Really think through these questions and make your responses meaningful. Longer does not mean better – we value insightful responses much more than lengthy responses. Note: It may be a good idea to write your responses in a separate document and then transfer them over to this application form.</p>
+            <h4>Tip 3</h4>
+            <p>Have fun. We get it. At the end of the day, you’re applying against the world’s brightest entrepreneurs for one of 35 spots to learn from the best of the best at Stanford University. But there’s nothing worse than reading an application that’s just a resume in paragraph form. Have fun with the responses and show your personality and creativity!</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+
+
+<div class="form container">
 	<div class="progress_bar">
 		<ul id="steps">
 			<div id="squeeze">
@@ -314,6 +446,19 @@
 <script>
 
 $(document).ready(function() {
+	$(document).scroll(
+		function() {
+			var scrollY = $(document).scrollTop(); 
+			var formY =  $('div#form-basic').offset().top;
+			var bar = $('.progress_bar');
+			if (scrollY >= formY) {
+				bar.css('display', 'block'); 
+			} else {
+				bar.css('display', 'none');
+			}
+		}
+	);
+
 	$('select').material_select();
 	$('form').on('submit', function(e) {
 		$('input[type="text"], textarea').each(function() {
