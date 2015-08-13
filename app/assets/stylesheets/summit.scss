@@ -198,22 +198,22 @@ body {
 }
 .progress_bar {
   display: none;
-	position: fixed;
-	left: 0;
-	top: 0;
-	background: #243877;
-	height: 100px;
-	width: 100%;
-	z-index: 2;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #243877;
+  height: 100px;
+  width: 100%;
+  z-index: 2;
 }
 .pane {
-	width: 100%;
-	min-height: 100vh;
-	padding-top: 150px;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 150px;
 }
 ul#steps {
-	padding: 0 100px;
-	display: flex;
+  padding: 0 100px;
+  display: flex;
   justify-content: center;
   margin: 0;
 }
@@ -227,8 +227,8 @@ ul#steps li {
   overflow: hidden;
   font-size: 1em;
   a {
-  	text-decoration: none;
-  	color: white;
+    text-decoration: none;
+    color: white;
   }
   .dot-surround {
     width: 30px;
@@ -259,15 +259,15 @@ ul#steps li {
     top: -38px;
   }
   .dot {
-  	background: white;
-  	position: relative;
-  	height: 10px;
+    background: white;
+    position: relative;
+    height: 10px;
     z-index: 4;
-  	width: 10px;
-  	margin: 0 auto;
-  	border-radius: 50%;
+    width: 10px;
+    margin: 0 auto;
+    border-radius: 50%;
     display: block;
-  	margin-top: 8px;
+    margin-top: 8px;
   }
 }
 li.active .dot-surround .dot-white {
@@ -427,14 +427,14 @@ body {
 
   .bg {
     &.asphalt {
-      background-image: image-url('../assets/bg_asphalt.png');
+      background-image: url('../assets/bg_asphalt.png');
       background-size: cover; 
       background-position: center center;
     }
   }
 
   #home {
-    background: image-url('../assets/hero_landing_page.jpg') no-repeat; 
+    background: url('../assets/hero_landing_page.jpg') no-repeat; 
     background-size: cover; 
     background-position: top center;
 
@@ -629,11 +629,11 @@ body {
         text-align: left; 
 
         &.include {
-          background: image-url('../assets/icon_check.png') no-repeat; 
+          background: url('../assets/icon_check.png') no-repeat; 
           background-position: top left;
         }
         &.exclude {
-          background: image-url('../assets/icon_x.png') no-repeat; 
+          background: url('../assets/icon_x.png') no-repeat; 
           background-position: top left;
           color: $accent-light;
           font-weight: 600;
