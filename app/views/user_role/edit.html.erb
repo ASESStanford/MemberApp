@@ -1,6 +1,6 @@
 <%= form_for User.new, url: {action: 'change_role', method: "POST"} do |f| %>
   <input type="text" name="user" id="username" data-user="-1" />
-  <select name="role" id="role">
+  <select name="role" id="role" style="display:block;">
     <option value="0">Applicant</option>
     <option value="1">Reviewer</option>
     <option value="2">Admin</option>
