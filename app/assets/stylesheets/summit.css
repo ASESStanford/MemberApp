@@ -488,11 +488,11 @@ body {
         left: 100%;
         margin-left: 1em; }
   #info .bg.asphalt {
-    background-image: url("../images/bg_asphalt.png");
+    background-image: image-url("../images/bg_asphalt.png");
     background-size: cover;
     background-position: center center; }
   #info #home {
-    background: url("../assets/hero_landing_page.jpg") no-repeat;
+    background: image-url("../assets/hero_landing_page.jpg") no-repeat;
     background-size: cover;
     background-position: top center; }
     #info #home .container {
@@ -639,10 +639,10 @@ body {
         padding-left: 40px;
         text-align: left; }
         #info #details ul#breakdown li.include {
-          background: url("../assets/icon_check.png") no-repeat;
+          background: image-url("../assets/icon_check.png") no-repeat;
           background-position: top left; }
         #info #details ul#breakdown li.exclude {
-          background: url("../assets/icon_x.png") no-repeat;
+          background: image-url("../assets/icon_x.png") no-repeat;
           background-position: top left;
           color: #deadb0;
           font-weight: 600; }

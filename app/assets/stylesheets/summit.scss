@@ -427,14 +427,14 @@ body {
 
   .bg {
     &.asphalt {
-      background-image: url('../images/bg_asphalt.png');
+      background-image: image-url('../images/bg_asphalt.png');
       background-size: cover; 
       background-position: center center;
     }
   }
 
   #home {
-    background: url('../assets/hero_landing_page.jpg') no-repeat; 
+    background: image-url('../assets/hero_landing_page.jpg') no-repeat; 
     background-size: cover; 
     background-position: top center;
 
@@ -629,11 +629,11 @@ body {
         text-align: left; 
 
         &.include {
-          background: url('../assets/icon_check.png') no-repeat; 
+          background: image-url('../assets/icon_check.png') no-repeat; 
           background-position: top left;
         }
         &.exclude {
-          background: url('../assets/icon_x.png') no-repeat; 
+          background: image-url('../assets/icon_x.png') no-repeat; 
           background-position: top left;
           color: $accent-light;
           font-weight: 600;
