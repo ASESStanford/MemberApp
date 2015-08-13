@@ -2,7 +2,8 @@
 <BR>
 	<%= link_to image_tag(@user.image.url(:med)), @user.image.url %>
 	<h4>Applicant Name: <%= @user.name %></h4>
-	Resume: <%= link_to "Link", @user.resume.url %>
+	<%= @user.name %>'s Resume: <%= link_to "Link", @user.resume.url %><BR>
+	<%= @user.name %>'s Face: <%= link_to "Link", @user.image.url %>
 <div class="status">Status:
 <% if @application_submission.submitted %>
 	Submitted
