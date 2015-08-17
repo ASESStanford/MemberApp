@@ -166,8 +166,10 @@
 			<span class="stretch"></span>
 		</ul>
 	</div>
-	<% flash.each do |key, value| %>
-	    <div class="alert alert-<%= key %>"><%= value %></div>
+	<% if flash[:success] %>
+		<div class="alert alert-success"><%= flash[:success] %></div>
+	<% elsif flash[:error] %>
+	    <div class="alert alert-error"><%= flash[:error] %></div>
 	<% end %>
 	<%= form_for @user, url:"http://ases.herokuapp.com/summit/new", :html => {:id => "summit_app", :multipart => true} do |f| %>
 	<!-- <form action="" method="post"> -->
@@ -446,6 +448,10 @@
 <script>
 
 $(document).ready(function() {
+	<% if flash[:success] %>
+	$('#summit_app').remove();
+	$('.progress_bar').remove();
+	<% else %>
 	$(document).scroll(
 		function() {
 			var scrollY = $(document).scrollTop(); 
@@ -491,6 +497,7 @@ $(document).ready(function() {
 			return false;
 		}
 	});
+	<% end %>
 });
 </script>
 
