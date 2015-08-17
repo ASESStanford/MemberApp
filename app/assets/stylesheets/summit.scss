@@ -42,7 +42,12 @@ body {
 }
 .alert {
   margin-top: 200px;
+  font-weight: bold;
+  font-size: 1.5em;
   text-align: center;
+}
+.alert-success {
+  margin-bottom: 200px;
 }
 #summit_app {
   textarea#experience {
