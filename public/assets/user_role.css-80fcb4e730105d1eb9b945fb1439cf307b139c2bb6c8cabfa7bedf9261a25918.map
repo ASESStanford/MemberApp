@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,WAAY;EACR,OAAO,EAAE,KAAK",
-"sources": ["user_role.scss"],
-"names": [],
-"file": "user_role.css"
-}
