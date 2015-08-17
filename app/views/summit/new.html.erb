@@ -171,7 +171,7 @@
 	<% elsif flash[:error] %>
 	    <div class="alert alert-error"><%= flash[:error] %></div>
 	<% end %>
-	<%= form_for @user, url:"http://ases.herokuapp.com/summit/new", :html => {:id => "summit_app", :multipart => true} do |f| %>
+	<%= form_for @user, url:"/summit/new", :html => {:id => "summit_app", :multipart => true} do |f| %>
 	<!-- <form action="" method="post"> -->
 		<div class="pane control-group" id="form-basic">
 			<div class="row heading">
@@ -454,11 +454,12 @@ $(document).ready(function() {
 	$('html, body').animate({
 		scrollTop: $(".alert").offset().top
 	}, 2000);
-	<% elsif flash[:error]%>
+	<% else %>
+	<% if flash[:error] %>
 	$('html, body').animate({
 		scrollTop: $(".alert").offset().top
 	}, 2000);
-	<% else %>
+	<% end %>
 	$(document).scroll(
 		function() {
 			var scrollY = $(document).scrollTop(); 
