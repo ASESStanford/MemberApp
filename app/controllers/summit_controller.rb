@@ -12,6 +12,10 @@ class SummitController < ApplicationController
   def create
     require 'securerandom'
     summit_form_id = 1
+    # delete old user if exists
+    old = User.where(:email => params[:user]["email"]).first
+    old.destroy if old
+    
     u = User.new
     u.password = SecureRandom.hex(8)
     u.name = params[:user]["first_name"] + " " + params[:user]["last_name"]
