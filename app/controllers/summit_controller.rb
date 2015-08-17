@@ -23,7 +23,7 @@ class SummitController < ApplicationController
     u.resume = params[:user]["resume"]
     u.image = params[:user]["image"]
     
-    if u.save!
+    if u.save
       a = ApplicationSubmission.new
       a.user = u
       a.application_form_id = summit_form_id
@@ -36,8 +36,12 @@ class SummitController < ApplicationController
         flash[:success] = "Your application has been submitted."
         redirect_to :action => 'new'
       else
-        redirect_to :back
+        flash[:error] = "There is an error. Please email us."
+        redirect_to :action => 'new'
       end
+    else
+      flash[:error] = "Check your resume and headshot are the right format."
+      redirect_to :action => 'new'
     end
   end
 
