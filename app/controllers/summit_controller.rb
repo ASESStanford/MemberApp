@@ -43,7 +43,7 @@ class SummitController < ApplicationController
       if a.save
         # this doesn't work because of Google's increased security, need to figure out another way
         # Postman.app_submission_email(params[:user]["email"], params[:user]["first_name"]).deliver
-        flash[:success] = "Your application has been submitted."
+        flash[:success] = "Great job! Your application has been submitted."
         redirect_to :action => 'new'
       else
         flash[:error] = "There is an error. Please email us."
