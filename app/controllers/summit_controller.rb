@@ -15,16 +15,15 @@ class SummitController < ApplicationController
     # delete old user if exists
     old = User.where(:email => params[:user]["email"]).first
     old.destroy if old
-    
+
     u = User.new
     u.password = SecureRandom.hex(8)
     u.name = params[:user]["first_name"] + " " + params[:user]["last_name"]
     u.email = params[:user]["email"]
     u.resume = params[:user]["resume"]
     u.image = params[:user]["image"]
-    print u
+    
     if u.save!
-      print "save"
       a = ApplicationSubmission.new
       a.user = u
       a.application_form_id = summit_form_id
