@@ -451,6 +451,13 @@ $(document).ready(function() {
 	<% if flash[:success] %>
 	$('#summit_app').remove();
 	$('.progress_bar').remove();
+	$('html, body').animate({
+		scrollTop: $(".alert").offset().top
+	}, 2000);
+	<% elsif flash[:error]%>
+	$('html, body').animate({
+		scrollTop: $(".alert").offset().top
+	}, 2000);
 	<% else %>
 	$(document).scroll(
 		function() {
@@ -464,7 +471,6 @@ $(document).ready(function() {
 			}
 		}
 	);
-
 	$('select').material_select();
 	$('form').on('submit', function(e) {
 		$('input[type="text"], textarea').each(function() {
