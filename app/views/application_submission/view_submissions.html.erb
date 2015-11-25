@@ -3,6 +3,7 @@
 	<tr>
 		<td>Rated?</td>
 		<td>Application Name</td>
+		<td>Submitted Date</td>
 		<td>Written Avg Score</td>
 		<td>Interview</td>
 		<% if current_user.is_admin? %>
@@ -15,6 +16,7 @@
 		<tr>
 			<td><%= bool_to_string(app.has_been_rated_by(current_user.id)) %></td>
 			<td><%= link_to app.applicant_name, app %></td>
+			<td><%= app.created_at.strftime("%b %d") %></td>
 			<td><%= app.avg_written_rating %></td>
 			<td>
 				<% if interview == nil %>
