@@ -16,6 +16,7 @@ class ApplicationFormController < ApplicationController
   end
 
   def new
+    @form = ApplicationForm.new
   end
 
   def destroy
