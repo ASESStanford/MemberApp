@@ -31,7 +31,7 @@ Link to share: <%= link_to request.host_with_port + "/new_app_submission/" + @fo
 	<% end %>
 	<tr>
 		<td>
-			<%= form_for @question, url: {action: "create"} do |f| %>
+			<%= form_for @question, url: '/question', method:'POST' do |f| %>
 				<%= f.text_field :text %>
 				<%= f.hidden_field :application_form_id, value: form[:id] %>
 				<%= f.submit "Create" %>

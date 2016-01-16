@@ -9,7 +9,7 @@ class QuestionController < ApplicationController
 
   def create
   	Question.create(question_params)
-  	redirect_to question_review_url
+  	redirect_to :back
   end
 
   def show
