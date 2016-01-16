@@ -1,11 +1,13 @@
 <h1>Dashboard</h1>
 <% if current_user.is_admin? %>
-<%= link_to "Change/Add/Remove Interview Timeslots", interview_admin_path %><BR>
-<%= link_to "Change User Roles", "/user_role/edit" %><BR>
+<!-- <%= link_to "Change/Add/Remove Interview Timeslots", interview_admin_path %><BR> -->
+<%= link_to "Create New Form", "/application_form/new" %><BR>
+<%= link_to "Manage User Roles", "/user_role/edit" %><BR>
+
 <% end %>
-<% if !current_user.is_applicant? %>
-<%= link_to "Sign Up for Interviews", interview_index_path %><BR>
-<% end %>
+<!-- <% if !current_user.is_applicant? %> -->
+<!-- <%= link_to "Sign Up for Interviews", interview_index_path %><BR> -->
+<!-- <% end %> -->
 <% if current_user.is_applicant? %>
 	<%= link_to "View My Application", edit_application_submission_path(current_user.application_submission.id) %><BR>
 <% end %>
