@@ -17,6 +17,14 @@ class ApplicationFormController < ApplicationController
 
   def new
     @form = ApplicationForm.new
+
+  end
+
+  def create
+    @form = ApplicationForm.create(app_form_params)
+    @form.user_id = current_user.id
+    @form.save
+    redirect_to application_form_path(@form.id)
   end
 
   def destroy
