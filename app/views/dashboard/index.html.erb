@@ -3,6 +3,9 @@
 <!-- <%= link_to "Change/Add/Remove Interview Timeslots", interview_admin_path %><BR> -->
 <%= link_to "Create New Form", "/application_form/new" %><BR>
 <%= link_to "Manage User Roles", "/user_role/edit" %><BR>
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+<% end %>
 
 <% end %>
 <!-- <% if !current_user.is_applicant? %> -->
@@ -17,5 +20,5 @@
 	<% @owned_forms.each do |o| %>
 		<%= link_to o.title, application_form_path(o) %>
 	<% end %>
-	</li>
+	</li><BR>
 <% end %>
